@@ -24,6 +24,14 @@ Holy Shiitake has been built using the Django framework in Python.
 
 #### Wireframes 
 
+#### Database Schema
+
+likes - many to many
+
+
+
+![Database Schema](docs/images/databaseschema.png)
+
 #### Features
 
 ##### Navigation Bar
@@ -36,7 +44,7 @@ Holy Shiitake has been built using the Django framework in Python.
 
 ## Testing
 
-### Bugs
+### Bugs
 
 ## Technologies 
 
