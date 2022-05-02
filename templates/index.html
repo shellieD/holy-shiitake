@@ -2,32 +2,49 @@
 
 {% block content %}
 
+{% load static %}
+
+<!-- Page Header-->
+<header class="masthead" style="background-image: url('{% static 'images/tacos.jpg' %}');">
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="site-heading">
+                    <h1>HOLY SHIITAKE</h1>
+                    <span class="subheading">A recipe sharing site for delicious plant-based, vegan friendly
+                        food!</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</header>
 <div class="container-fluid">
     <div class="row">
         <!-- Recipes -->
 
         <div class="col-12 mt-3 left">
             <div class="row">
-            {% for recipe in recipe_list %}
+                {% for recipe in recipe_list %}
                 <div class="col-md-4">
                     <div class="card mb-4">
                         <div class="card-body">
                             <div class="image-container">
                                 {% if "placeholder" in recipe.recipe_image.url %}
-                                <img src="static/images/vegetables.jpg" alt="Heap of sliced vegetables" class="card-img-top">
+                                <img src="static/images/vegetables.jpg" alt="Heap of sliced vegetables"
+                                    class="card-img-top">
                                 {% else %}
                                 <img src="{{ recipe.recipe_image.url }}" class="card-img-top">
                                 {% endif %}
                             </div>
-                            <a href="#" class="'recipe-link">
+                            <a href="{% url 'recipe_view' recipe.slug %}" class="'recipe-link">
                                 <h2 class="card-title">{{ recipe.recipe_name }}</h2>
-                                <p class="author">Recipe by: {{ recipe.name }}</p>
-                                <p class="card-text">{{ recipe.description }}</p>
+                                <p class="author">Recipe by: {{ recipe.author }}</p>
+                                <p class="card-text">{{ recipe.description |safe }}</p>
                             </a>
                             <hr>
-                            <p class="card-text text-muted h6">{{ recipe.added_on }} <i 
-                                class="far fa-heart"></i>{{ recipe.number_of_likes }}</p>
-                            
+                            <p class="card-text text-muted h6">{{ recipe.added_on }} <i
+                                    class="far fa-heart"></i>{{ recipe.number_of_likes }}</p>
+
                         </div>
                     </div>
                     {% if is_paginated %}
@@ -35,14 +52,12 @@
                         <ul class="pagination justify-content-center">
                             {% if page_obj.has_previous %}
                             <li>
-                                <a href="?page={{ page_obj.previous_page_number }}" 
-                                class="page-link">&laquo; PREV</a>
+                                <a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV</a>
                             </li>
                             {% endif %}
                             {% if page_obj.has_next %}
                             <li>
-                                <a href="?page={{ page_obj.next_page_number }}" 
-                                class="page-link">NEXT &raquo;</a>
+                                <a href="?page={{ page_obj.next_page_number }}" class="page-link">NEXT &raquo;</a>
                             </li>
                             {% endif %}
                         </ul>
@@ -50,11 +65,11 @@
                     {% endif %}
                 </div>
 
-            {% if forloop.counter|divisibleby:3 %}
-            </div>  
+                {% if forloop.counter|divisibleby:3 %}
+            </div>
             <div class="'row">
-            {% endif %}
-            {% endfor %}
+                {% endif %}
+                {% endfor %}
             </div>
         </div>
     </div>
