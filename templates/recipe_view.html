@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% load static %}
+
+        <!-- Page Header-->
+        {% if "placeholder" in recipe.recipe_image.url %}
+        <header class="masthead" style="background-image: url('{% static 'images/vegetables.jpg' %}');">
+        {% else %}
+        <header class="masthead" style="background-image: url('{{ recipe.recipe_image.url }}');">
+        {% endif %}
+            <div class="container position-relative px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7">
+                        <div class="post-heading">
+                            <h1>{{ recipe.recipe_name }}</h1>
+                            <span class="meta">
+                                Added by
+                                {{ recipe.author }} | {{ recipe.added_on }}
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </header>
+        <!-- Post Content-->
+        <article class="mb-4">
+            <div class="container px-4 px-lg-5">
+                <div class="row gx-4 gx-lg-5 justify-content-center">
+                    <div class="col-md-10 col-lg-8 col-xl-7 recipe-inline">
+                       <p>{{ recipe.description | safe }}</p>
+                       <hr>
+                       <p>{{ recipe.ingredients | safe}}</p>
+                       <hr>
+                       <p>{{ recipe.method | safe }}</p>
+                       <div class="row">
+
+                        <div class="col-1">
+                            <strong class="text-secondary"><i class="far fa-heart"></i> {{ recipe.number_of_likes }} </strong>
+                        </div>
+                        <div class="col-1">
+                            {% with comments.count as total_comments %}
+                            <strong class="text-secondary"><i class="far fa-comments"></i>
+                                <!-- Our total_comments variable goes before the closing strong tag -->
+                                {{ total_comments }}</strong>
+                            {% endwith %}
+                        </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </article>
+
+{% endblock %}
