@@ -639,6 +639,11 @@ progress {
   margin-left: auto;
 }
 
+.sign-in-container {
+  margin-top: 83px;
+}
+
+
 @media (min-width: 576px) {
   .container-sm, .container {
     max-width: 540px;
@@ -11063,20 +11068,23 @@ blockquote {
 @media (min-width: 992px) {
   #mainNav {
     border-bottom: 1px solid transparent;
-    background: transparent;
+    /* background: transparent; */
   }
   #mainNav .navbar-brand {
-    color: #fff;
+    /* color: #fff; */
   }
   #mainNav .navbar-brand:focus, #mainNav .navbar-brand:hover {
-    color: rgba(255, 255, 255, 0.8);
+    transition: all .2s ease-in-out;  
+    transform: scale(1.1); 
   }
   #mainNav .navbar-nav > li.nav-item > a.nav-link {
-    color: #fff;
+    /* color: #fff; */
   }
-  #mainNav .navbar-nav > li.nav-item > a.nav-link:focus, #mainNav .navbar-nav > li.nav-item > a.nav-link:hover {
-    color: rgba(255, 255, 255, 0.8);
+  #mainNav .navbar-nav > li.nav-item > a.nav-link:focus, #mainNav .navbar-nav > li.nav-item > a.nav-link:hover { 
+      transition: all .2s ease-in-out;  
+      transform: scale(1.1); 
   }
+
 }
 @media (min-width: 992px) {
   #mainNav {
@@ -11098,13 +11106,15 @@ blockquote {
     color: #212529;
   }
   #mainNav.is-fixed .navbar-brand:focus, #mainNav.is-fixed .navbar-brand:hover {
-    color: #0085A1;
+    transition: all .2s ease-in-out;  
+    transform: scale(1.1); 
   }
   #mainNav.is-fixed .navbar-nav > li.nav-item > a {
     color: #212529;
   }
   #mainNav.is-fixed .navbar-nav > li.nav-item > a:focus, #mainNav.is-fixed .navbar-nav > li.nav-item > a:hover {
-    color: #0085A1;
+    transition: all .2s ease-in-out;  
+    transform: scale(1.1); 
   }
   #mainNav.is-visible {
     /* if the user changes the scrolling direction, we show the header */
