@@ -47,7 +47,7 @@ class Comment(models.Model):
         on_delete=models.CASCADE,
         related_name="comments"
     )
-    name = models.CharField(max_length=50, unique=True)
+    name = models.CharField(max_length=50)
     added_on = models.DateTimeField(auto_now=True)
     body = models.TextField()
     likes = models.ManyToManyField(
