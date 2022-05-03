@@ -4,42 +4,45 @@
 
 {% load static %}
 
-        <!-- Page Header-->
-        {% if "placeholder" in recipe.recipe_image.url %}
-        <header class="masthead" style="background-image: url('{% static 'images/vegetables.jpg' %}');">
-        {% else %}
-        <header class="masthead" style="background-image: url('{{ recipe.recipe_image.url }}');">
+{% load crispy_forms_tags %}
+
+<!-- Page Header-->
+{% if "placeholder" in recipe.recipe_image.url %}
+<header class="masthead" style="background-image: url('{% static 'images/vegetables.jpg' %}');">
+    {% else %}
+    <header class="masthead" style="background-image: url('{{ recipe.recipe_image.url }}');">
         {% endif %}
-            <div class="container position-relative px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <div class="col-md-10 col-lg-8 col-xl-7">
-                        <div class="post-heading">
-                            <h1>{{ recipe.recipe_name }}</h1>
-                            <span class="meta">
-                                Added by
-                                {{ recipe.author }} | {{ recipe.added_on }}
-                            </span>
-                        </div>
+        <div class="container position-relative px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div class="post-heading">
+                        <h1>{{ recipe.recipe_name }}</h1>
+                        <span class="meta">
+                            Added by
+                            {{ recipe.author }} | {{ recipe.added_on }}
+                        </span>
                     </div>
                 </div>
             </div>
-        </header>
-        <!-- Post Content-->
-        <article class="mb-4">
-            <div class="container px-4 px-lg-5">
-                <div class="row gx-4 gx-lg-5 justify-content-center">
-                    <div class="col-md-10 col-lg-8 col-xl-7">
-                       <p>{{ recipe.description | safe }}</p>
-                       <hr>
-                       <h2>Ingredients</h2>
-                       <p>{{ recipe.ingredients | safe}}</p>
-                       <hr>
-                       <h2>Method</h2>
-                       <p>{{ recipe.method | safe }}</p>
-                       <div class="row">
+        </div>
+    </header>
+    <!-- Post Content-->
+    <article class="mb-4">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <p>{{ recipe.description | safe }}</p>
+                    <hr>
+                    <h2>Ingredients</h2>
+                    <p>{{ recipe.ingredients | safe}}</p>
+                    <hr>
+                    <h2>Method</h2>
+                    <p>{{ recipe.method | safe }}</p>
+                    <div class="row">
 
                         <div class="col-1">
-                            <strong class="text-secondary"><i class="far fa-heart"></i> {{ recipe.number_of_likes }} </strong>
+                            <strong class="text-secondary"><i class="far fa-heart"></i> {{ recipe.number_of_likes }}
+                            </strong>
                         </div>
                         <div class="col-1">
                             {% with comments.count as total_comments %}
@@ -49,9 +52,49 @@
                             {% endwith %}
                         </div>
                     </div>
-                    </div>
                 </div>
             </div>
-        </article>
+        </div>
+    </article>
 
-{% endblock %}
+    <div class="row">
+        <div class="col-md-8 card mb-4 mt-3">
+            <h3>Comments:</h3>
+            <div class="card-body">
+                {% for comment in comments %}
+                <div class="comments">
+                    <p class="font-weight-bold">
+                        {{ comment.name }}
+                        <span class="text-muted font-weight-nrmal">
+                            {{ comment.added_on }}
+                        </span>
+                    </p>
+                    {{ comment.body | linebreaks }}
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+        <div class="col-md-4 card mb-4  mt-3 ">
+            <div class="card-body">
+                <!-- For later -->
+                {% if commented %}
+                <div class="alert alert-success" role="alert">
+                    Thanks {{ user.username }}, your comment is awaiting approval
+                </div>
+                {% else %}
+                {% if user.is_authenticated %}
+
+                <h3>Leave a comment:</h3>
+                <p>Posting as: {{ user.username }}</p>
+                <form method="post" style="margin-top: 1.3em;">
+                    {{ comment_form | crispy }}
+                    {% csrf_token %}
+                    <button type="submit" class="btn btn-signup btn-lg">Submit</button>
+                </form>
+                {% endif %}
+                {% endif %}
+            </div>
+        </div>
+    </div>
+
+    {% endblock %}
