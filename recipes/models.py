@@ -30,8 +30,8 @@ class Recipe(models.Model):
     )
 
 
-class Meta:
-    ordering = ['-added_on']
+    class Meta:
+        ordering = ['-added_on']
 
     def __str__(self):
         return self.recipe_name
