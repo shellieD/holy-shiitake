@@ -1,8 +1,8 @@
-from django.shortcuts import render, get_object_or_404, reverse
+from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
 from django.http import HttpResponseRedirect
 from .models import Recipe
-from .forms import CommentForm
+from .forms import CommentForm, RecipeForm
 
 
 class RecipeList(generic.ListView):
@@ -78,3 +78,16 @@ class RecipeLike(View):
             recipe.likes.add(request.user)
 
         return HttpResponseRedirect(reverse('recipe_view', args=[slug]))
+
+
+def add_recipe(request):
+    if request.method == "GET":
+        form = RecipeForm()
+        return render(request, 'add_recipe.html', {"form": form})
+    elif request.method == "POST":
+        form = RecipeForm(request.POST)
+        if form.is_valid():
+            form.save()
+            return redirect(' ')
+        else:
+            return render(request, 'add_recipe.html', {"form": form})
