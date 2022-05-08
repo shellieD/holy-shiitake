@@ -82,18 +82,6 @@ class RecipeLike(View):
         return HttpResponseRedirect(reverse('recipe_view', args=[slug]))
 
 
-# def add_recipe(request):
-#     if request.method == "GET":
-#         form = RecipeForm()
-#         return render(request, 'add_recipe.html', {"form": form})
-#     elif request.method == "POST":
-#         form = RecipeForm(request.POST)
-#         if form.is_valid():
-#             form.save()
-#             return redirect('/')
-#         else:
-#             return render(request, 'add_recipe.html', {"form": form})
-
 class AddRecipe(View):
 
     def get(self, request):
