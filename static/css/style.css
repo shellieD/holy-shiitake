@@ -11070,16 +11070,12 @@ blockquote {
     border-bottom: 1px solid transparent;
     /* background: transparent; */
   }
-  #mainNav .navbar-brand {
-    /* color: #fff; */
-  }
+
   #mainNav .navbar-brand:focus, #mainNav .navbar-brand:hover {
     transition: all .2s ease-in-out;  
     transform: scale(1.1); 
   }
-  #mainNav .navbar-nav > li.nav-item > a.nav-link {
-    /* color: #fff; */
-  }
+
   #mainNav .navbar-nav > li.nav-item > a.nav-link:focus, #mainNav .navbar-nav > li.nav-item > a.nav-link:hover { 
       transition: all .2s ease-in-out;  
       transform: scale(1.1); 
