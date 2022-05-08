@@ -1,6 +1,8 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
 from django.http import HttpResponseRedirect
+from django.contrib import messages
+from django.db.models import Q
 from .models import Recipe
 from .forms import CommentForm, RecipeForm
 
@@ -80,14 +82,48 @@ class RecipeLike(View):
         return HttpResponseRedirect(reverse('recipe_view', args=[slug]))
 
 
-def add_recipe(request):
-    if request.method == "GET":
-        form = RecipeForm()
-        return render(request, 'add_recipe.html', {"form": form})
-    elif request.method == "POST":
+# def add_recipe(request):
+#     if request.method == "GET":
+#         form = RecipeForm()
+#         return render(request, 'add_recipe.html', {"form": form})
+#     elif request.method == "POST":
+#         form = RecipeForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             return redirect('/')
+#         else:
+#             return render(request, 'add_recipe.html', {"form": form})
+
+class AddRecipe(View):
+
+    def get(self, request):
+        context = {'form': RecipeForm()}
+        return render(request, 'add_recipe.html', context)
+
+    def post(self, request):
+
+        print('Start of POST request')
         form = RecipeForm(request.POST)
+        print(form)
+        title = form.instance.recipe_name
+        print(title)
+        recipe_exists = Recipe.objects.filter(
+            Q(recipe_name__iexact=title)
+        ).exists()
+        print(recipe_exists)
+        if recipe_exists:
+            print('Recipe Name already exists')
+            messages.error(request, 'Recipe Name already exists, please choose another name')
+            context = {'form': form}
+            return render(request, 'add_recipe.html', context)
         if form.is_valid():
+            print("form is valid")
+            form.instance.author = self.request.user
+            print("author assigned")
             form.save()
-            return redirect(' ')
+            print("form is saved")
+            messages.success(request, "Your recipe is awaiting approval")
+            return redirect('home')
         else:
-            return render(request, 'add_recipe.html', {"form": form})
+            print('form not valid')
+            form = RecipeForm()
