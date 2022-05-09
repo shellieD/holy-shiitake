@@ -115,3 +115,12 @@ class AddRecipe(View):
         else:
             print('form not valid')
             form = RecipeForm()
+
+
+class UserRecipes(generic.ListView):
+    def get(self, request):
+        recipes = Recipe.objects.filter(
+            author=request.user, status=1
+        ).order_by('-added_on')
+        print(recipes)
+        return render(request, 'user_recipes.html', {'recipes': recipes})
