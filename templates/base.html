@@ -38,6 +38,7 @@
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="#">ALL RECIPES</a></li>
                     {% if user.is_authenticated %}
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'add_recipe' %}">ADD RECIPE</a></li>
+                    <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'user_recipes' %}">MY RECIPES</a></li>
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'account_logout' %}">LOGOUT</a></li>
                     {% else %}
                     <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'account_login' %}">LOGIN</a></li>
