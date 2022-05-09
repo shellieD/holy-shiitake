@@ -36,7 +36,7 @@
                                 <img src="{{ recipe.recipe_image.url }}" height="300" alt="{{ recipe.recipe_name }}" class="card-img-top">
                                 {% endif %}
                             </div>
-                            <a href="{% url 'recipe_view' recipe.slug %}" class="'recipe-link">
+                            <a href="{% url 'recipe_view' recipe.slug %}" class="recipe-link">
                                 <h2 class="card-title">{{ recipe.recipe_name }}</h2>
                             </a>
                             <p class="author">Recipe by: {{ recipe.author }}</p>
@@ -49,7 +49,7 @@
                 </div>
                 {% if forloop.counter|divisibleby:3 %}
             </div>
-            <div class="'row">
+            <div class="row">
                 {% endif %}
                 {% endfor %}
             </div>
