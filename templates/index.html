@@ -18,6 +18,8 @@
         </div>
     </div>
 </header>
+
+
 <div class="container-fluid">
     <div class="row">
         <!-- Recipes -->
@@ -30,10 +32,10 @@
                         <div class="card-body">
                             <div class="image-container">
                                 {% if "placeholder" in recipe.recipe_image.url %}
-                                <img src="static/images/vegetables.jpg" height="300" alt="Heap of sliced vegetables"
+                                <img id="recipe-image" src="https://res.cloudinary.com/bubblecloud/image/upload/v1652285408/vegetables_r4syec.jpg" alt="Heap of sliced vegetables"
                                     class="card-img-top">
                                 {% else %}
-                                <img src="{{ recipe.recipe_image.url }}" height="300" alt="{{ recipe.recipe_name }}" class="card-img-top">
+                                <img id="recipe-image" src="{{ recipe.recipe_image.url }}" alt="{{ recipe.recipe_name }}" class="card-img-top">
                                 {% endif %}
                             </div>
                             <a href="{% url 'recipe_view' recipe.slug %}" class="recipe-link">
