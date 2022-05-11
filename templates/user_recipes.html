@@ -4,11 +4,16 @@
 
 {% load static %}
 
+<div class="row">
+    <div class="col-8 offset-2">
+        <h1 class="h1 display-2 text-center">My Recipes</h1>
+        <hr>
+    </div>
+</div>
 
 <div class="container-fluid">
     <div class="row">
         <!-- Recipes -->
-
         <div class="col-12 mt-3 left">
             <div class="row">
                 {% for recipe in recipes %}
@@ -17,10 +22,10 @@
                         <div class="card-body">
                             <div class="image-container">
                                 {% if "placeholder" in recipe.recipe_image.url %}
-                                <img src="static/images/vegetables.jpg" height="300" alt="Heap of sliced vegetables"
+                                <img id="recipe-image" src="https://res.cloudinary.com/bubblecloud/image/upload/v1652285408/vegetables_r4syec.jpg" height="300" alt="Heap of sliced vegetables"
                                     class="card-img-top">
                                 {% else %}
-                                <img src="{{ recipe.recipe_image.url }}" height="300" alt="{{ recipe.recipe_name }}"
+                                <img id="recipe-image" src="{{ recipe.recipe_image.url }}" height="300" alt="{{ recipe.recipe_name }}"
                                     class="card-img-top">
                                 {% endif %}
                             </div>
@@ -31,6 +36,10 @@
                             <hr>
                             <p class="card-text text-muted h6">{{ recipe.added_on }} <i class="far fa-heart"> </i>
                                 {{ recipe.number_of_likes }}</p>
+                            <button type="button" class="btn btn-primary">Edit</button>
+                            <button type="button" class="btn btn-danger">Delete</button>
+
+
                         </div>
                     </div>
                 </div>
