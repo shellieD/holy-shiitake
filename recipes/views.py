@@ -1,5 +1,6 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
-from django.views import generic, View
+from django.views import generic, View,
+from django.views.generic.edit import UpdateView
 from django.http import HttpResponseRedirect
 from django.contrib import messages
 from django.db.models import Q
@@ -124,3 +125,10 @@ class UserRecipes(generic.ListView):
         ).order_by('-added_on')
         print(recipes)
         return render(request, 'user_recipes.html', {'recipes': recipes})
+
+
+class UpdateRecipe(UpdateView):
+    model: Recipe
+    fields = ['recipe_name', 'description', 'ingredients', 'method', 'recipe_image']
+    template_name_suffix = '_update_form'
+
