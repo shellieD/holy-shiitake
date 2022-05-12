@@ -1,5 +1,5 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
-from django.views import generic, View,
+from django.views import generic, View
 from django.views.generic.edit import UpdateView
 from django.http import HttpResponseRedirect
 from django.contrib import messages
@@ -91,30 +91,23 @@ class AddRecipe(View):
 
     def post(self, request):
 
-        print('Start of POST request')
         form = RecipeForm(request.POST)
-        print(form)
         title = form.instance.recipe_name
-        print(title)
         recipe_exists = Recipe.objects.filter(
             Q(recipe_name__iexact=title)
         ).exists()
-        print(recipe_exists)
         if recipe_exists:
-            print('Recipe Name already exists')
             messages.error(request, 'Recipe Name already exists, please choose another name')
             context = {'form': form}
             return render(request, 'add_recipe.html', context)
         if form.is_valid():
-            print("form is valid")
+            print(form.instance.ingredients)
+            print(form.instance.method)
             form.instance.author = self.request.user
-            print("author assigned")
             form.save()
-            print("form is saved")
             messages.success(request, "Your recipe is awaiting approval")
             return redirect('home')
         else:
-            print('form not valid')
             form = RecipeForm()
 
 
@@ -128,7 +121,6 @@ class UserRecipes(generic.ListView):
 
 
 class UpdateRecipe(UpdateView):
-    model: Recipe
-    fields = ['recipe_name', 'description', 'ingredients', 'method', 'recipe_image']
-    template_name_suffix = '_update_form'
-
+    model = Recipe
+    template_name = 'update_recipe.html'
+    form_class = RecipeForm
