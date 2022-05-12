@@ -36,7 +36,7 @@
                             <hr>
                             <p class="card-text text-muted h6">{{ recipe.added_on }} <i class="far fa-heart"> </i>
                                 {{ recipe.number_of_likes }}</p>
-                            <button type="button" class="btn btn-primary">Edit</button>
+                            <a class="btn btn-primary" href="{% url 'update_recipe' recipe.slug %}" role="button">Edit</a>
                             <button type="button" class="btn btn-danger">Delete</button>
 
 
