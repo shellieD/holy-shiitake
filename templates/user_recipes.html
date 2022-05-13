@@ -22,11 +22,12 @@
                         <div class="card-body">
                             <div class="image-container">
                                 {% if "placeholder" in recipe.recipe_image.url %}
-                                <img id="recipe-image" src="https://res.cloudinary.com/bubblecloud/image/upload/v1652285408/vegetables_r4syec.jpg" height="300" alt="Heap of sliced vegetables"
-                                    class="card-img-top">
+                                <img id="recipe-image"
+                                    src="https://res.cloudinary.com/bubblecloud/image/upload/v1652285408/vegetables_r4syec.jpg"
+                                    height="300" alt="Heap of sliced vegetables" class="card-img-top">
                                 {% else %}
-                                <img id="recipe-image" src="{{ recipe.recipe_image.url }}" height="300" alt="{{ recipe.recipe_name }}"
-                                    class="card-img-top">
+                                <img id="recipe-image" src="{{ recipe.recipe_image.url }}" height="300"
+                                    alt="{{ recipe.recipe_name }}" class="card-img-top">
                                 {% endif %}
                             </div>
                             <a href="{% url 'recipe_view' recipe.slug %}" class="recipe-link">
@@ -36,13 +37,17 @@
                             <hr>
                             <p class="card-text text-muted h6">{{ recipe.added_on }} <i class="far fa-heart"> </i>
                                 {{ recipe.number_of_likes }}</p>
-                            <a class="btn btn-primary" href="{% url 'update_recipe' recipe.slug %}" role="button">Edit</a>
-                            <button type="button" class="btn btn-danger">Delete</button>
 
-
+                            <!-- Edit & Delete Buttons -->
+                            <a class="btn btn-primary" href="{% url 'update_recipe' recipe.slug %}"
+                                role="button">Edit</a>
+                            <a class="btn btn-danger" href="{% url 'delete_recipe' recipe.slug %}"
+                            role="button">Delete</a>
                         </div>
                     </div>
                 </div>
+
+
                 {% if forloop.counter|divisibleby:3 %}
             </div>
             <div class="row">
@@ -51,24 +56,22 @@
             </div>
         </div>
     </div>
-</div>
-</div>
 
-{% if is_paginated %}
-<nav aria-label="Page navigation">
-    <ul class="pagination justify-content-center">
-        {% if page_obj.has_previous %}
-        <li>
-            <a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV</a>
-        </li>
-        {% endif %}
-        {% if page_obj.has_next %}
-        <li>
-            <a href="?page={{ page_obj.next_page_number }}" class="page-link">NEXT &raquo;</a>
-        </li>
-        {% endif %}
-    </ul>
-</nav>
-{% endif %}
+    {% if is_paginated %}
+    <nav aria-label="Page navigation">
+        <ul class="pagination justify-content-center">
+            {% if page_obj.has_previous %}
+            <li>
+                <a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV</a>
+            </li>
+            {% endif %}
+            {% if page_obj.has_next %}
+            <li>
+                <a href="?page={{ page_obj.next_page_number }}" class="page-link">NEXT &raquo;</a>
+            </li>
+            {% endif %}
+        </ul>
+    </nav>
+    {% endif %}
 </div>
 {% endblock %}
