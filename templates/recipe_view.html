@@ -64,20 +64,28 @@
                                 {% endif %}
                                 <span class="text-secondary"> {{ recipe.number_of_likes }}</span>
                                 {% if user.is_authenticated and user.id == recipe.author.id %}
-                                <a class="btn btn-primary" href="{% url 'update_recipe' recipe.slug %}" role="button">Edit</a>
-                                {% endif %}
+                                <a class="btn btn-primary" href="{% url 'update_recipe' recipe.slug %}"
+                                    role="button">Edit</a>
+                                <a class="btn btn-danger" href="{% url 'delete_recipe' recipe.slug %}"
+                                role="button">Delete</a>
                             </strong>
-                            </div>
-                            <div class="col-1">
-                                {% with comments.count as total_comments %}
-                                <strong class="text-secondary">
-                                    <i class="far fa-comments"> </i> {{ total_comments }}</strong>
-                                {% endwith %}
-                            </div>
-                        
+                            
+                        </div>
                     </div>
                 </div>
+                {% endif %}
+                </strong>
             </div>
+            <div class="col-1">
+                {% with comments.count as total_comments %}
+                <strong class="text-secondary">
+                    <i class="far fa-comments"> </i> {{ total_comments }}</strong>
+                {% endwith %}
+            </div>
+
+        </div>
+        </div>
+        </div>
         </div>
     </article>
 
