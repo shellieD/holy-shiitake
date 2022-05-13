@@ -1,14 +1,16 @@
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
-from django.views.generic.edit import UpdateView
+from django.views.generic.edit import UpdateView, DeleteView
 from django.http import HttpResponseRedirect
 from django.contrib import messages
 from django.db.models import Q
 from .models import Recipe
 from .forms import CommentForm, RecipeForm
+from django.urls import reverse_lazy
 
 
 class RecipeList(generic.ListView):
+    """View to show a list of all recipes posted by all users"""
     model = Recipe
     queryset = Recipe.objects.filter(status=1).order_by('-added_on')
     template_name = 'index.html'
@@ -16,7 +18,7 @@ class RecipeList(generic.ListView):
 
 
 class RecipeView(View):
-
+    """View to show recipe details for selected recipe"""
     def get(self, request, slug, *args, **kwargs):
         queryset = Recipe.objects.filter(status=1)
         recipe = get_object_or_404(queryset, slug=slug)
@@ -71,7 +73,7 @@ class RecipeView(View):
 
 
 class RecipeLike(View):
-
+    """View to toggle like button"""
     def post(self, request, slug):
         recipe = get_object_or_404(Recipe, slug=slug)
 
@@ -84,7 +86,7 @@ class RecipeLike(View):
 
 
 class AddRecipe(View):
-
+    """View to add a new recipe"""
     def get(self, request):
         context = {'form': RecipeForm()}
         return render(request, 'add_recipe.html', context)
@@ -101,8 +103,6 @@ class AddRecipe(View):
             context = {'form': form}
             return render(request, 'add_recipe.html', context)
         if form.is_valid():
-            print(form.instance.ingredients)
-            print(form.instance.method)
             form.instance.author = self.request.user
             form.save()
             messages.success(request, "Your recipe is awaiting approval")
@@ -112,15 +112,24 @@ class AddRecipe(View):
 
 
 class UserRecipes(generic.ListView):
+    """View to display recipes created by logged in user"""
     def get(self, request):
         recipes = Recipe.objects.filter(
             author=request.user, status=1
         ).order_by('-added_on')
-        print(recipes)
         return render(request, 'user_recipes.html', {'recipes': recipes})
+    paginate_by = 6
 
 
 class UpdateRecipe(UpdateView):
+    """View to update a recipe"""
     model = Recipe
     template_name = 'update_recipe.html'
     form_class = RecipeForm
+
+
+class DeleteRecipe(DeleteView):
+    """View to delete recipe"""
+    model = Recipe
+    template_name = 'delete_recipe.html'
+    success_url = reverse_lazy('user_recipes')
