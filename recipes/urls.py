@@ -1,5 +1,5 @@
-from . import views
 from django.urls import path
+from . import views
 
 
 urlpatterns = [
@@ -7,6 +7,11 @@ urlpatterns = [
         '',
         views.RecipeList.as_view(),
         name='home'
+    ),
+    path(
+        'recipes/all_recipes',
+        views.AllRecipes.as_view(),
+        name='all_recipes'
     ),
     path(
         'recipes/<slug:slug>/',
