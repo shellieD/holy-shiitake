@@ -12,8 +12,15 @@ from django.urls import reverse_lazy
 class RecipeList(generic.ListView):
     """View to show a list of all recipes posted by all users"""
     model = Recipe
-    queryset = Recipe.objects.filter(status=1).order_by('-added_on')
+    queryset = Recipe.objects.filter(status=1).order_by('-added_on')[0:6]
     template_name = 'index.html'
+
+
+class AllRecipes(generic.ListView):
+    """View to show a list of all recipes posted by all users"""
+    model = Recipe
+    queryset = Recipe.objects.filter(status=1).order_by('recipe_name')
+    template_name = 'all_recipes.html'
     paginate_by = 6
 
 
@@ -58,7 +65,6 @@ class RecipeView(View):
         else:
             comment_form = CommentForm()
 
-
         return render(
             request,
             "recipe_view.html",
@@ -99,7 +105,10 @@ class AddRecipe(View):
             Q(recipe_name__iexact=title)
         ).exists()
         if recipe_exists:
-            messages.error(request, 'Recipe Name already exists, please choose another name')
+            messages.error(
+                request,
+                'Recipe Name already exists, please choose another name'
+            )
             context = {'form': form}
             return render(request, 'add_recipe.html', context)
         if form.is_valid():
