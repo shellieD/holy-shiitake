@@ -5,7 +5,7 @@
 {% load static %}
 
 <!-- Page Header-->
-<header class="masthead" style="background-image: url('{% static 'images/tacos.jpg' %}');">
+<header class="masthead home-page-image" style="background-image: url('https://res.cloudinary.com/bubblecloud/image/upload/v1652537107/veganfood_zidihn.webp');">
     <div class="container position-relative px-4 px-lg-5">
         <div class="row gx-4 gx-lg-5 justify-content-center">
             <div class="col-md-10 col-lg-8 col-xl-7">
@@ -63,22 +63,5 @@
             </div>
         </div>
     </div>
-
-    {% if is_paginated %}
-    <nav aria-label="Page navigation">
-        <ul class="pagination justify-content-center">
-            {% if page_obj.has_previous %}
-            <li>
-                <a href="?page={{ page_obj.previous_page_number }}" class="page-link">&laquo; PREV</a>
-            </li>
-            {% endif %}
-            {% if page_obj.has_next %}
-            <li>
-                <a href="?page={{ page_obj.next_page_number }}" class="page-link">NEXT &raquo;</a>
-            </li>
-            {% endif %}
-        </ul>
-    </nav>
-    {% endif %}
 </div>
 {% endblock %}
