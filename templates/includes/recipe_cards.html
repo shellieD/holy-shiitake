@@ -1,0 +1,21 @@
+<div class="col-md-4">
+    <div class="card mb-4">
+        <div class="card-body">
+            <div class="image-container">
+                {% if "placeholder" in recipe.recipe_image.url %}
+                <img class="recipe-image card-img-top" src="https://res.cloudinary.com/bubblecloud/image/upload/v1652285408/vegetables_r4syec.jpg" alt="Heap of sliced vegetables">
+                {% else %}
+                <img class="recipe-image ard-img-top" src="{{ recipe.recipe_image.url }}" alt="{{ recipe.recipe_name }}">
+                {% endif %}
+            </div>
+            <a href="{% url 'recipe_view' recipe.slug %}" class="recipe-link">
+                <h2 class="card-title">{{ recipe.recipe_name }}</h2>
+            </a>
+            <p class="author">Recipe by: {{ recipe.author }}</p>
+            <p class="card-text">{{ recipe.description |safe }}</p>
+            <hr>
+            <p class="card-text text-muted h6">{{ recipe.added_on }} <i
+                    class="far fa-heart"> </i> {{ recipe.number_of_likes }}</p>
+        </div>
+    </div>
+</div>
