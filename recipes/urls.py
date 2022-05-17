@@ -40,6 +40,12 @@ urlpatterns = [
     ),
     path(
         'recipes/<slug:slug>/delete_recipe/',
-        views.DeleteRecipe.as_view(), name='delete_recipe'
+        views.DeleteRecipe.as_view(),
+        name='delete_recipe'
+    ),
+    path(
+        'search_results',
+        views.search_results,
+        name='search_results'
     ),
 ]
