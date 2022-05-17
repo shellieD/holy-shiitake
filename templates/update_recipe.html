@@ -12,7 +12,7 @@
     <div class="row">
         <div class="col">
             <h1>Edit Recipe</h1>
-            <form method="post" class="recipe-form">
+            <form method="POST" class="recipe-form">
                 {% csrf_token %}
                 {{ form | crispy }}
                 <input type="submit" value="Update">
