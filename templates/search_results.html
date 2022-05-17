@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+    {% if searched %}
+        <h1>You searched for {{ searched }}</h1>
+        <br>
+        <div class="col-12 mt-3 left">
+        <div class="row">
+        {% for recipe in recipes %}
+
+        {% include 'includes/recipe_cards.html' with recipe=recipe %}
+
+            {% if forloop.counter|divisibleby:3 %}
+        </div>
+        <div class="row">
+            {% endif %}
+            {% endfor %}
+            </div>
+        </div>
+    </div>
+    
+    {% else %}
+        <h1>Hey!! You forgot to search for a recipe!</h1>
+    {%endif %}
+
+{% endblock %}
