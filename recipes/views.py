@@ -122,12 +122,15 @@ class AddRecipe(View):
 
 class UserRecipes(generic.ListView):
     """View to display recipes created by logged in user"""
-    def get(self, request):
-        recipes = Recipe.objects.filter(
-            author=request.user, status=1
-        ).order_by('-added_on')
-        return render(request, 'user_recipes.html', {'recipes': recipes})
+    template_name = 'user_recipes.html'
+    model = Recipe
+    context_object_name = 'recipes'
     paginate_by = 6
+
+    def get_queryset(self):
+        return Recipe.objects.filter(
+            author=self.request.user, status=1
+        ).order_by('-added_on')
 
 
 class UpdateRecipe(UpdateView):
@@ -135,6 +138,7 @@ class UpdateRecipe(UpdateView):
     model = Recipe
     template_name = 'update_recipe.html'
     form_class = RecipeForm
+    success_url = reverse_lazy('user_recipes')
 
 
 class DeleteRecipe(DeleteView):
@@ -142,3 +146,15 @@ class DeleteRecipe(DeleteView):
     model = Recipe
     template_name = 'delete_recipe.html'
     success_url = reverse_lazy('user_recipes')
+
+# codemy.com YouTube tutorial for below search function
+# https://www.youtube.com/watch?v=AGtae4L5BbI
+# Create a Search Bar - Django
+def search_results(request):
+    if request.method == "GET":
+        searched = request.GET['searched']
+        recipes = Recipe.objects.filter(ingredients__icontains=searched)
+        return render(request, 'search_results.html',
+                      {'searched': searched, 'recipes': recipes})
+    else:
+        return render(request, 'search_results.html', {})
