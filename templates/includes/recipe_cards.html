@@ -5,7 +5,7 @@
                 {% if "placeholder" in recipe.recipe_image.url %}
                 <img class="recipe-image card-img-top" src="https://res.cloudinary.com/bubblecloud/image/upload/v1652285408/vegetables_r4syec.jpg" alt="Heap of sliced vegetables">
                 {% else %}
-                <img class="recipe-image ard-img-top" src="{{ recipe.recipe_image.url }}" alt="{{ recipe.recipe_name }}">
+                <img class="recipe-image card-img-top" src="{{ recipe.recipe_image.url }}" alt="{{ recipe.recipe_name }}">
                 {% endif %}
             </div>
             <a href="{% url 'recipe_view' recipe.slug %}" class="recipe-link">
