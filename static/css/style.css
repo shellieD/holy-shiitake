@@ -1,3 +1,66 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Display:wght@300&family=Rock+Salt&display=swap');
+
+body {
+    font-family: 'Noto Sans Display', sans-serif;
+}
+
+.nav-bar-green {
+    background-color: #768b45;
+    box-shadow: 0px 2px 5px #768b45;
+}
+
+.navbar-brand {
+    font-family: 'Rock Salt', sans-serif;
+    color: #fff;
+}
+
+.navbar-brand:hover {
+    color: #263B00;
+}
+
+.nav-link {
+    font-family: 'Noto Sans Display', sans-serif;
+    color: #fff;
+}
+
+.nav-link:hover {
+    font-family: 'Noto Sans Display', sans-serif;
+    color: #fff;
+}
+
+/* Code snippet for .grow taken from travis.media */
+/* https://travis.media/how-to-make-an-item-grow-on-hover-with-css/ */
+.grow { 
+    transition: all .3s ease-in-out; 
+    }
+    
+.grow:hover { 
+    transform: scale(1.2); 
+}
+
+.search-button {
+    color: #fff;
+    border-color: #fff;
+}
+
+.search-button:hover {
+    color: #fff;
+    border-color: #fff;
+    background-color: #263B00;
+}
+
+hr {
+    border: 1px solid #263B00;
+}
+
+.main-image {
+    background: no repeat center center/cover;
+    height: 100vh;
+}
+
+.text-white {
+    color: #fff;
+}
 
 .recipe-image {
     width: 100%;
@@ -5,3 +68,10 @@
     object-fit: cover;
 }
 
+.social-links {
+    color: #768b45;
+}
+
+.social-links:hover {
+    color: #263B00;
+}
