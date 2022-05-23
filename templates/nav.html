@@ -1,26 +1,26 @@
-<nav class="navbar navbar-expand-lg bg-light">
+<nav class="navbar navbar-expand-lg nav-bar-green">
     <div class="container-fluid">
-        <a class="navbar-brand" href="{% url 'home' %}">HOLY SHIITAKE - it's vegan</a>
+        <a class="navbar-brand" href="{% url 'home' %}">Holy Shiitake!</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'home' %}">HOME</a></li>
-                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'all_recipes' %}">ALL
+                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4 grow" href="{% url 'home' %}">HOME</a></li>
+                <li class="nav-item grow"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'all_recipes' %}">ALL
                         RECIPES</a></li>
                 {% if user.is_authenticated %}
-                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'add_recipe' %}">ADD
+                <li class="nav-item grow"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'add_recipe' %}">ADD
                         RECIPE</a></li>
-                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'user_recipes' %}">MY
+                <li class="nav-item grow"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'user_recipes' %}">MY
                         RECIPES</a></li>
-                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4"
+                <li class="nav-item grow"><a class="nav-link px-lg-3 py-3 py-lg-4"
                         href="{% url 'account_logout' %}">LOGOUT</a></li>
                 {% else %}
-                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'account_login' %}">LOGIN</a>
+                <li class="nav-item grow"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'account_login' %}">LOGIN</a>
                 </li>
-                <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4"
+                <li class="nav-item grow"><a class="nav-link px-lg-3 py-3 py-lg-4"
                         href="{% url 'account_signup' %}">SIGNUP</a></li>
                 {% endif %}
 
@@ -28,7 +28,7 @@
             <form class="d-flex" role="search" method="GET" action="{% url 'search_results' %}">
                 {% csrf_token %}
                 <input class="form-control me-2" type="search" placeholder="Search Recipes" aria-label="Search" name="searched">
-                <button class="btn btn-outline-secondary" type="submit">Search</button>
+                <button class="btn btn-outline-secondary search-button" type="submit">Search</button>
             </form>
         </div>
     </div>
