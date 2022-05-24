@@ -54,6 +54,8 @@ hr {
     border: 1px solid #263B00;
 }
 
+/* Code recycled from the Bootstrap Module
+on the Code Institute Full Stack Developer Course */
 #main-image {
     height: 70vh;
     background: url('https://res.cloudinary.com/bubblecloud/image/upload/v1653338558/vegan-food_kloyxy.jpg') no-repeat bottom right fixed;
@@ -83,7 +85,6 @@ hr {
 
 .page-title, .slogan {
     font-family: 'Rock Salt', sans-serif;
-
 }
 
 .page-title {
