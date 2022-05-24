@@ -180,7 +180,7 @@ SUMMERNOTE_CONFIG = {
         'toolbar': [
             ['font', ['bold', 'underline', 'clear']],
             ['color', ['black']],
-            ['para', ['ul', 'ol', 'paragraph']],
+            ['para', ['ul', 'ol']],
             ['view', ['fullscreen', 'help']],
         ],
     },
