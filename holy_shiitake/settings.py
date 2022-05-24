@@ -181,7 +181,7 @@ SUMMERNOTE_CONFIG = {
             ['font', ['bold', 'underline', 'clear']],
             ['color', ['black']],
             ['para', ['ul', 'ol', 'paragraph']],
-            ['view', ['fullscreen', 'codeview', 'help']],
+            ['view', ['fullscreen', 'help']],
         ],
     },
 
