@@ -99,7 +99,7 @@ class AddRecipe(View):
 
     def post(self, request):
 
-        form = RecipeForm(request.POST)
+        form = RecipeForm(request.POST, request.FILES)
         title = form.instance.recipe_name
         recipe_exists = Recipe.objects.filter(
             Q(recipe_name__iexact=title)
