@@ -59,3 +59,5 @@ When adding functionality to allow users to add comments to recipes, the user wa
 ## Credits
 
 Image by <a href="https://pixabay.com/users/pasja1000-6355831/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=4581877">pasja1000</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=4581877">Pixabay</a>
+
+image by Photo by Trang Doan: https://www.pexels.com/photo/top-view-photo-of-food-dessert-1099680/
