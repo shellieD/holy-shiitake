@@ -9,23 +9,24 @@
 <!-- Page Header-->
 {% if "placeholder" in recipe.recipe_image.url %}
 <header class="masthead" style="background-image: url('{% static 'images/vegetables.jpg' %}');">
-    {% else %}
-    <header class="masthead" style="background-image: url('{{ recipe.recipe_image.url }}');">
-        {% endif %}
-        <div class="container position-relative px-4 px-lg-5">
-            <div class="row gx-4 gx-lg-5 justify-content-center">
-                <div class="col-md-10 col-lg-8 col-xl-7">
-                    <div class="post-heading">
-                        <h1>{{ recipe.recipe_name }}</h1>
-                        <span class="meta">
-                            Added by
-                            {{ recipe.author }} | {{ recipe.added_on }}
-                        </span>
-                    </div>
+{% else %}
+<header class="masthead" style="background-image: url('{{ recipe.recipe_image.url }}');">
+{% endif %}
+    <div class="opaque-overlay">&nbsp;</div>
+    <div class="container position-relative px-4 px-lg-5">
+        <div class="row gx-4 gx-lg-5 justify-content-center">
+            <div class="col-md-10 col-lg-8 col-xl-7">
+                <div class="post-heading">
+                    <h1>{{ recipe.recipe_name }}</h1>
+                    <span class="meta">
+                        Added by
+                        {{ recipe.author }} | {{ recipe.added_on }}
+                    </span>
                 </div>
             </div>
         </div>
-    </header>
+    </div>
+</header>
     <!-- Recipe Content-->
     <article class="mb-4">
         <div class="container px-4 px-lg-5">
@@ -38,8 +39,8 @@
                     <hr>
                     <h2>Method</h2>
                     <p>{{ recipe.method | safe }}</p>
-                    <div class="row">
-                        <div class="col-1">
+                    <div class="row inline-block">
+                        <div class="col-1 inline">
                             <strong>
                                 {% if user.is_authenticated %}
                                 <form class="d-inline" action="{% url 'recipe_like' recipe.slug %}" method="POST">
@@ -63,25 +64,31 @@
                                 <span class="text-secondary"><i class="far fa-heart"> </i></span>
                                 {% endif %}
                                 <span class="text-secondary"> {{ recipe.number_of_likes }}</span>
-                                {% if user.is_authenticated and user.id == recipe.author.id %}
-                                <a class="btn btn-primary" href="{% url 'update_recipe' recipe.slug %}"
-                                    role="button">Edit</a>
-                                <a class="btn btn-danger" href="{% url 'delete_recipe' recipe.slug %}"
-                                role="button">Delete</a>
+
+                                <div class="col-1 inline comments">
+                                    {% with comments.count as total_comments %}
+                                    <strong class="text-secondary">
+                                        <i class="far fa-comments"> </i> {{ total_comments }}</strong>
+                                    {% endwith %}
+                                </div>
                             </strong>
-                            
+        
+                        </div>
+                        
+                    </strong>
+                        {% if user.is_authenticated and user.id == recipe.author.id %}
+                        <div class="buttons">
+                            <a class="btn btn-primary edit-button" href="{% url 'update_recipe' recipe.slug %}"
+                                role="button">Edit</a>
+                            <a class="btn btn-danger delete-button" href="{% url 'delete_recipe' recipe.slug %}"
+                                role="button">Delete</a>
                         </div>
                     </div>
                 </div>
                 {% endif %}
                 </strong>
             </div>
-            <div class="col-1">
-                {% with comments.count as total_comments %}
-                <strong class="text-secondary">
-                    <i class="far fa-comments"> </i> {{ total_comments }}</strong>
-                {% endwith %}
-            </div>
+            
 
         </div>
         </div>
@@ -89,8 +96,8 @@
         </div>
     </article>
 
-    <div class="row">
-        <div class="col-md-8 card mb-4 mt-3">
+    <div class="row ">
+        <div class="col-md-12 card mb-4 mt-3">
             <h3>Comments:</h3>
             <div class="card-body">
                 {% for comment in comments %}
@@ -106,9 +113,10 @@
                 {% endfor %}
             </div>
         </div>
-        <div class="col-md-4 card mb-4  mt-3 ">
+    </div>
+    <div class="row">
+        <div class="col-md-12 card mb-4  mt-3 ">
             <div class="card-body">
-                <!-- For later -->
                 {% if commented %}
                 <div class="alert alert-success" role="alert">
                     Thanks {{ user.username }}, your comment is awaiting approval
