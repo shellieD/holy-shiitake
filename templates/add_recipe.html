@@ -9,7 +9,7 @@
 <div class="container position-relative px-4 px-lg-5">
     <div class="row">
         <div class="col">
-        <h1>Add A Recipe</h1>
+        <h1 class="h3 display-2 text-center title">Add A Recipe</h1>
         <form method="post" class="recipe-form">
             {% csrf_token %}
             {{ form | crispy }}
