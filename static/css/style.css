@@ -2,6 +2,7 @@
 
 body {
     font-family: 'Noto Sans Display', sans-serif;
+    background-color:#F8FAF1;
 }
 
 .nav-bar-green {
@@ -53,9 +54,48 @@ hr {
     border: 1px solid #263B00;
 }
 
-.main-image {
-    background: no repeat center center/cover;
-    height: 100vh;
+#main-image {
+    height: 70vh;
+    background: url('https://res.cloudinary.com/bubblecloud/image/upload/v1653338558/vegan-food_kloyxy.jpg') no-repeat bottom right fixed;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.opaque-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    background-color: rgba(0,0,0,0.5);
+}
+
+.text-on-top {
+    z-index: 100;
+}
+
+.page-title, .slogan {
+    font-family: 'Rock Salt', sans-serif;
+
+}
+
+.page-title {
+    font-size: 7.5em;
+}
+
+.title {
+    color: #263B00;
+}
+
+.header-text p {
+    font-size: 1.4em;
 }
 
 .text-white {
@@ -68,6 +108,96 @@ hr {
     object-fit: cover;
 }
 
+.recipe-link {
+    text-decoration: none;
+    color: #263B00;
+    font-weight: bold;
+}
+
+.recipe-link:hover {
+    text-decoration: none;
+    color: #570000;
+}
+
+.card-title:hover {
+    text-shadow: #768b45;
+}
+
+.masthead {
+    height: 50vh;
+    background-repeat: no-repeat;
+    background-position: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+}
+
+.page-heading {
+    font-family: 'Rock Salt', sans-serif;
+    color: #fff;
+    font-size: 8.5em;
+    text-align: center;
+}
+
+.post-heading h1 {
+    font-family: 'Rock Salt', sans-serif;
+    color: #fff;
+}
+
+.post-heading .meta {
+    color: #fff;
+}
+
+.buttons a {
+    display: inline-block;
+    margin-top: 20px;
+    margin-right: 20px;
+}
+
+.inline {
+    display: inline;
+}
+
+.inline-block {
+    display: inline-block;
+}
+
+.comments {
+    margin-left: 25px;
+}
+
+
+.edit-button {
+    background-color: #263B00;
+    border-color: #263B00;
+}
+.edit-button:hover {
+    background-color: #768b45;
+
+}
+
+.delete-button {
+    background-color: #951F1D;
+    border-color: #951F1D;
+}
+
+.delete-button:hover {
+    background-color: #D85C4E;
+}
+
+.page-link {
+    color: #570000;
+}
+
+.page-link:hover {
+    color: #263B00;
+}
 .social-links {
     color: #768b45;
 }
