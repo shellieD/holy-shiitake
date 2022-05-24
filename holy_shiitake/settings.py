@@ -178,14 +178,11 @@ SUMMERNOTE_CONFIG = {
         # Toolbar customization
         # https://summernote.org/deep-dive/#custom-toolbar-popover
         'toolbar': [
-            ['style', ['style']],
             ['font', ['bold', 'underline', 'clear']],
-            ['fontname', ['fontname']],
             ['color', ['black']],
             ['para', ['ul', 'ol', 'paragraph']],
             ['view', ['fullscreen', 'codeview', 'help']],
         ],
-
     },
 
     # Lazy initialization
