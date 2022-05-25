@@ -97,7 +97,7 @@ class AddRecipe(View):
         context = {'form': RecipeForm()}
         return render(request, 'add_recipe.html', context)
 
-    def post(self, request):
+    def post(self, request, *args, **kwargs):
 
         form = RecipeForm(request.POST, request.FILES)
         title = form.instance.recipe_name
@@ -113,11 +113,22 @@ class AddRecipe(View):
             return render(request, 'add_recipe.html', context)
         if form.is_valid():
             form.instance.author = self.request.user
-            form.save()
-            messages.success(request, "Your recipe is awaiting approval")
-            return redirect('home')
+            try:
+                form.save()
+                messages.success(request, "Your recipe is awaiting approval")
+                return redirect('home')
+            except:
+                messages.error(request,
+                'Error: Only images can be uploaded.  Please try again.'
+                )
+                context = {'form': form}
+                return render(request, 'add_recipe.html', context)
         else:
-            form = RecipeForm()
+            messages.error(request,
+            'Error: The form is not valid, please check and try again'
+            )
+            context = {'form': form}
+            return render(request, 'add_recipe.html', context)
 
 
 class UserRecipes(generic.ListView):
