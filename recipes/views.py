@@ -5,7 +5,7 @@ from django.http import HttpResponseRedirect
 from django.contrib import messages
 from django.db.models import Q
 from .models import Recipe
-from .forms import CommentForm, RecipeForm
+from .forms import CommentForm, RecipeForm, ApproveForm
 from django.urls import reverse_lazy
 
 
@@ -119,14 +119,14 @@ class AddRecipe(View):
                 return redirect('home')
             except:
                 messages.error(request,
-                'Error: Only images can be uploaded.  Please try again.'
-                )
+                               'Error: Only images can be uploaded.'
+                               'Please try again.')
                 context = {'form': form}
                 return render(request, 'add_recipe.html', context)
         else:
             messages.error(request,
-            'Error: The form is not valid, please check and try again'
-            )
+                           'Error: The form is not valid, '
+                           'please check and try again')
             context = {'form': form}
             return render(request, 'add_recipe.html', context)
 
@@ -158,14 +158,40 @@ class DeleteRecipe(DeleteView):
     template_name = 'delete_recipe.html'
     success_url = reverse_lazy('user_recipes')
 
+
+class ApproveRecipe(UpdateView):
+    """View to toggle status of recipe from draft to approved"""
+    model = Recipe
+    template_name = 'approve_recipe.html'
+    form_class = ApproveForm
+    success_url = reverse_lazy('moderate_recipes')
+
+
 # codemy.com YouTube tutorial for below search function
 # https://www.youtube.com/watch?v=AGtae4L5BbI
 # Create a Search Bar - Django
 def search_results(request):
     if request.method == "GET":
         searched = request.GET['searched']
-        recipes = Recipe.objects.filter(ingredients__icontains=searched)
+        recipes = Recipe.objects.distinct().filter(
+            Q(recipe_name__icontains=searched) |
+            Q(description__icontains=searched) |
+            Q(ingredients__icontains=searched)
+        )
         return render(request, 'search_results.html',
                       {'searched': searched, 'recipes': recipes})
     else:
         return render(request, 'search_results.html', {})
+
+
+class ModerateRecipes(generic.ListView):
+    """View to display draft recipes awaiting approval by admin"""
+    template_name = 'moderate_recipes.html'
+    model = Recipe
+    context_object_name = 'recipes'
+    paginate_by = 6
+
+    def get_queryset(self):
+        return Recipe.objects.filter(
+            status=0
+        ).order_by('-added_on')
