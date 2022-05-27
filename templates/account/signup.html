@@ -5,7 +5,7 @@
 {% block head_title %}{% trans "Signup" %}{% endblock %}
 
 {% block content %}
-<div class="container sign-in-container">
+<div class="container sign-in-container center">
   <div class="row">
     <div class="col-md-8 mt-3 offset-md-2">
       <h1>{% trans "Sign Up" %}</h1>
@@ -15,7 +15,7 @@
     </div>
   </div>
 
-  <div class="row">
+  <div class="row center">
     <div class="col-md-8 mt-3 offset-md-2">
       <form class="signup" id="signup_form" method="post" action="{% url 'account_signup' %}">
         {% csrf_token %}
@@ -23,7 +23,7 @@
         {% if redirect_field_value %}
         <input type="hidden" name="{{ redirect_field_name }}" value="{{ redirect_field_value }}" />
         {% endif %}
-        <button type="submit">{% trans "Sign Up" %} &raquo;</button>
+        <button type="submit" class="btn btn-success edit-button text-white sub-btn">{% trans "Sign Up" %} &raquo;</button>
       </form>
     </div>
   </div>

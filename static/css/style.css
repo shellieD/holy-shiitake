@@ -62,7 +62,7 @@ hr {
 on the Code Institute Full Stack Developer Course */
 #main-image {
     height: 70vh;
-    background: url('https://res.cloudinary.com/bubblecloud/image/upload/v1653338558/vegan-food_kloyxy.jpg') no-repeat bottom right fixed;
+    background: url('https://res.cloudinary.com/bubblecloud/image/upload/v1653338558/vegan-food_kloyxy.jpg') no-repeat center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -72,6 +72,18 @@ on the Code Institute Full Stack Developer Course */
     align-items: center;
     justify-content: center;
     position: relative;
+}
+
+/* @media screen and (max-width: 500px){
+    #main-image {
+        height: 40vh;
+    }
+} */
+
+@media screen and (max-width: 950px){
+    #main-image {
+        height: 40vh;
+    }
 }
 
 .opaque-overlay {
@@ -104,7 +116,7 @@ on the Code Institute Full Stack Developer Course */
 }
 
 .info-text {
-    font-size: 1vw;
+    font-size: 1.5vw;
 }
 
 .header-text p {
@@ -182,14 +194,18 @@ on the Code Institute Full Stack Developer Course */
 }
 
 .comments {
-    margin-left: 25px;
+    margin: 1.5% 10%;
 }
 
+.center {
+    text-align: center;
+}
 
 .edit-button {
     background-color: #263B00;
     border-color: #263B00;
 }
+
 .edit-button:hover {
     background-color: #768b45;
 
@@ -213,6 +229,9 @@ on the Code Institute Full Stack Developer Course */
     background-color: #263B00;
 }
 
+.sub-btn {
+    margin: 5px;
+}
 
 .page-link {
     color: #570000;
@@ -221,6 +240,8 @@ on the Code Institute Full Stack Developer Course */
 .page-link:hover {
     color: #263B00;
 }
+
+
 .social-links {
     color: #768b45;
 }
@@ -228,3 +249,4 @@ on the Code Institute Full Stack Developer Course */
 .social-links:hover {
     color: #263B00;
 }
+
