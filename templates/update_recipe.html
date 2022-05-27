@@ -6,7 +6,7 @@
 
 {% load crispy_forms_tags %}
 
-{% if user.is_authenticated and user.id == recipe.author.id %}
+{% if user.is_authenticated and user.id == recipe.author.id or user.is_superuser %}
 
 <div class="container position-relative px-4 px-lg-5">
     <div class="row">
