@@ -1,9 +1,9 @@
-<nav class="navbar navbar-expand-lg nav-bar-green">
+<nav class="navbar navbar-expand-lg nav-bar-green navbar-expand{-sm|-md|-lg|-xl|-xxl}">
     <div class="container-fluid">
         <a class="navbar-brand" href="{% url 'home' %}">Holy Shiitake!</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
             aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
+            <span class="navbar-toggler-icon"><i class="fa-solid fa-bars text-white"></i></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
@@ -22,6 +22,11 @@
                 </li>
                 <li class="nav-item grow"><a class="nav-link px-lg-3 py-3 py-lg-4"
                         href="{% url 'account_signup' %}">SIGNUP</a></li>
+                {% endif %}
+                {% if user.is_authenticated and user.is_superuser %}
+                <li class="nav-item grow"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'moderate_recipes' %}">
+                    MODERATE RECIPES/COMMENTS
+                </a></li>
                 {% endif %}
 
             </ul>
