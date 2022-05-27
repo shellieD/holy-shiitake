@@ -14,6 +14,7 @@
 <div class="container-fluid">
     <div class="row">
         <!-- Recipes -->
+        {% if user.recipes == 0 %}
         <div class="col-12 mt-3 left">
             <div class="row">
                 {% for recipe in recipes %}
@@ -70,6 +71,15 @@
             {% endif %}
         </ul>
     </nav>
+    {% endif %}
+
+    {% else %}
+        <div class="center">
+            <p>It looks like you haven't created any recipes yet!</p>
+            <a class="btn btn-primary edit-button sub-btn" href="{% url 'add_recipe' %}"
+            role="button">Add Recipe</a>
+        </div>
+        
     {% endif %}
 </div>
 {% endblock %}
