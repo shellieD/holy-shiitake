@@ -29,6 +29,10 @@ body {
     color: #fff;
 }
 
+.text-white {
+    color: #fff;
+}
+
 /* Code snippet for .grow taken from travis.media */
 /* https://travis.media/how-to-make-an-item-grow-on-hover-with-css/ */
 .grow { 
@@ -88,11 +92,19 @@ on the Code Institute Full Stack Developer Course */
 }
 
 .page-title {
-    font-size: 7.5em;
+    font-size: 7.5vw;
 }
 
 .title {
     color: #263B00;
+}
+
+.slogan {
+    font-size: 1.8vw;
+}
+
+.info-text {
+    font-size: 1vw;
 }
 
 .header-text p {
@@ -191,6 +203,16 @@ on the Code Institute Full Stack Developer Course */
 .delete-button:hover {
     background-color: #D85C4E;
 }
+
+.approve-button {
+    background-color: #768b45;
+    border-color: #768b45;
+}
+
+.approve-button:hover {
+    background-color: #263B00;
+}
+
 
 .page-link {
     color: #570000;
