@@ -48,4 +48,14 @@ urlpatterns = [
         views.search_results,
         name='search_results'
     ),
+    path(
+        'recipes/moderate_recipes',
+        views.ModerateRecipes.as_view(),
+        name='moderate_recipes'
+    ),
+    path(
+        'recipes/<slug:slug>/approve_recipe',
+        views.ApproveRecipe.as_view(),
+        name='approve_recipe'
+    )
 ]
