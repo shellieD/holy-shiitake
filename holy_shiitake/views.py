@@ -1,3 +1,4 @@
+"""Views for Custom Error Pages"""
 from django.shortcuts import render
 
 
