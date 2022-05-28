@@ -18,6 +18,22 @@
                 <p>Trying to eat less meat?  Eat more vegetables?  Or go completely meat and dairy free?</p>
                 <p>Holy Shiitake! is brimming with delicious plant based recipes to help expand your culinary repertoire.</p>
                 <p>Search the site or log in/sign up to add and share your own favourite vegan-friendly recipes!</p>
+
+                {% if user.is_authenticated %}
+                <div>
+                    <a class="btn btn-danger delete-button" href="{% url 'add_recipe' %}"
+                    role="button">Add Recipe</a>
+                </div>
+
+                {% else %}
+                <div>
+                  <a class="btn btn-success edit-button" href="{% url 'account_signup' %}"
+                      role="button">Sign Up</a>
+                  <a class="btn btn-danger delete-button" href="{% url 'account_login' %}"
+                      role="button">Sign In</a>
+                </div>
+                {% endif %}
+                
             </div>
         </div>
     </div>
