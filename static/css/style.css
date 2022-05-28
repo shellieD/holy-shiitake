@@ -2,7 +2,7 @@
 
 body {
     font-family: 'Noto Sans Display', sans-serif;
-    background-color:#F8FAF1;
+    background-color: #F8FAF1;
 }
 
 .nav-bar-green {
@@ -35,12 +35,12 @@ body {
 
 /* Code snippet for .grow taken from travis.media */
 /* https://travis.media/how-to-make-an-item-grow-on-hover-with-css/ */
-.grow { 
-    transition: all .3s ease-in-out; 
-    }
-    
-.grow:hover { 
-    transform: scale(1.2); 
+.grow {
+    transition: all .3s ease-in-out;
+}
+
+.grow:hover {
+    transform: scale(1.2);
 }
 
 .search-button {
@@ -80,7 +80,7 @@ on the Code Institute Full Stack Developer Course */
     }
 } */
 
-@media screen and (max-width: 950px){
+@media screen and (max-width: 950px) {
     #main-image {
         height: 40vh;
     }
@@ -92,14 +92,15 @@ on the Code Institute Full Stack Developer Course */
     left: 0;
     height: 100%;
     width: 100%;
-    background-color: rgba(0,0,0,0.5);
+    background-color: rgba(0, 0, 0, 0.5);
 }
 
 .text-on-top {
     z-index: 100;
 }
 
-.page-title, .slogan {
+.page-title,
+.slogan {
     font-family: 'Rock Salt', sans-serif;
 }
 
