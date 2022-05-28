@@ -11,6 +11,10 @@ class RecipeAdmin(SummernoteModelAdmin):
     list_display = ('recipe_name', 'added_on', 'status', 'updated_on')
     search_fields = ('recipe_name', 'description', 'ingredients', 'method')
     summernote_fields = ('description', 'ingredients', 'method')
+    actions = ['approve_recipe']
+
+    def approve_recipe(self, request, queryset):
+        queryset.update(status=1)
 
 
 @admin.register(Comment)
