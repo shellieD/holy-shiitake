@@ -9,12 +9,12 @@
 <div class="container position-relative px-4 px-lg-5">
     <div class="row">
         <div class="col">
-        <h1 class="h3 display-2 text-center title">Add A Recipe</h1>
-        <form method="post" class="recipe-form" enctype='multipart/form-data'>
-            {% csrf_token %}
-            {{ form | crispy }}
-            <button type="submit" class="bt btn-success edit-button sub-btn text-white">Submit</button>
-        </form>
+            <h1 class="h3 display-2 text-center title">Add A Recipe</h1>
+            <form method="post" class="recipe-form" enctype='multipart/form-data'>
+                {% csrf_token %}
+                {{ form | crispy }}
+                <button type="submit" class="bt btn-success edit-button sub-btn text-white">Submit</button>
+            </form>
         </div>
     </div>
 </div>
