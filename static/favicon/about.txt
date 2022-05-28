@@ -1,0 +1,6 @@
+This favicon was generated using the following font:
+
+- Font Title: Rock Salt
+- Font Author: Copyright (c) 2010 by Font Diner, Inc DBA Sideshow. All rights reserved.
+- Font Source: http://fonts.gstatic.com/s/rocksalt/v18/MwQ0bhv11fWD6QsAVOZbsEk7hbBWrA.ttf
+- Font License: Apache License, version 2.0 (http://www.apache.org/licenses/LICENSE-2.0.html))
