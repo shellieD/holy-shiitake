@@ -109,6 +109,7 @@ on the Code Institute Full Stack Developer Course */
 
 .title {
     color: #263B00;
+    padding-top: 10px;
 }
 
 .slogan {
@@ -241,7 +242,6 @@ on the Code Institute Full Stack Developer Course */
     color: #263B00;
 }
 
-
 .social-links {
     color: #768b45;
 }
@@ -250,3 +250,6 @@ on the Code Institute Full Stack Developer Course */
     color: #263B00;
 }
 
+.responsive-text {
+    font-size: 3vw;
+}
