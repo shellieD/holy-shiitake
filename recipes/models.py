@@ -31,7 +31,6 @@ class Recipe(models.Model):
         blank=True
     )
 
-
     class Meta:
         ordering = ['-added_on']
 
