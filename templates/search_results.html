@@ -2,26 +2,38 @@
 
 {% block content %}
 
+<!--PAGE HEADING-->
+<div class="row">
+    <div class="col-8 offset-2">
+        <h3 class="h3 display-2 text-center title">Search Results</h3>
+        <hr>
+    </div>
+</div>
+
     {% if searched %}
-        <h1>You searched for {{ searched }}</h1>
+        <h1 class="center">You searched for {{ searched }}</h1>
         <br>
         <div class="col-12 mt-3 left">
         <div class="row">
-        {% for recipe in recipes %}
+        {% if recipes %}
+            {% for recipe in recipes %}
 
-        {% include 'includes/recipe_cards.html' with recipe=recipe %}
+            {% include 'includes/recipe_cards.html' with recipe=recipe %}
 
-            {% if forloop.counter|divisibleby:3 %}
-        </div>
-        <div class="row">
-            {% endif %}
-            {% endfor %}
+                {% if forloop.counter|divisibleby:3 %}
             </div>
-        </div>
+            <div class="row">
+                {% endif %}
+                {% endfor %}
+                </div>
+            </div>
+        {% else %}
+        <p class="center">There are no recipes containing <strong>{{ searched }}</strong>.  Search for something else.</p>
+        {% endif %}
     </div>
     
     {% else %}
-        <h1>Hey!! You forgot to search for a recipe!</h1>
+        <p class="center message-to-user">Hey!! You forgot to search for a recipe!</p>
     {%endif %}
 
 {% endblock %}
