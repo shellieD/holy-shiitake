@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% load static %}
+
+<!-- Page Heading-->
+<div class="row">
+    <div class="col-8 offset-2">
+        <h3 class="h3 display-2 text-center title">404 - Page Not Found</h3>
+        <hr>
+        <div class="center error-message">
+            <p class="slogan responsive-text">Holy Shiitake!</p> 
+            <div>
+                <p class="error-text">Looks like something went wrong.</p>
+                <p class="error-text">Let's get you back to the home page!</p>   
+            </div>
+            <a href="{% url 'home' %}">HOME</a>
+        </div>
+    </div>
+</div>
+
+<br>
+
+{% endblock %}
