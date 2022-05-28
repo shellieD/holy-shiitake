@@ -20,12 +20,14 @@
                 <p>Search the site or log in/sign up to add and share your own favourite vegan-friendly recipes!</p>
 
                 {% if user.is_authenticated %}
+                <!--Shows Add Recipe button if user is logged in-->
                 <div>
                     <a class="btn btn-danger delete-button" href="{% url 'add_recipe' %}"
                     role="button">Add Recipe</a>
                 </div>
 
                 {% else %}
+                <!--Shows Sign Up and Log In buttons if user is not logged in-->
                 <div>
                   <a class="btn btn-success edit-button" href="{% url 'account_signup' %}"
                       role="button">Sign Up</a>
@@ -48,7 +50,7 @@
     </div>
 </div>
 
-
+<!--Shows latest 6 recipes that have been added to site-->
 <div class="container-fluid">
     <div class="row">
         <!-- Recipes -->

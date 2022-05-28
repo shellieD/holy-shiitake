@@ -7,9 +7,11 @@
         </button>
         <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <!--Shows Home and All Recipes on NavBar for all users-->
                 <li class="nav-item"><a class="nav-link px-lg-3 py-3 py-lg-4 grow" href="{% url 'home' %}">HOME</a></li>
                 <li class="nav-item grow"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'all_recipes' %}">ALL
                         RECIPES</a></li>
+                <!--Shows Add Recipes/My Recipes on NavBar if user is logged in-->
                 {% if user.is_authenticated %}
                 <li class="nav-item grow"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'add_recipe' %}">ADD
                         RECIPE</a></li>
@@ -17,22 +19,28 @@
                         RECIPES</a></li>
                 <li class="nav-item grow"><a class="nav-link px-lg-3 py-3 py-lg-4"
                         href="{% url 'account_logout' %}">LOGOUT</a></li>
+                <!--Shows Login and Signup on NavBar if user is not logged in-->
                 {% else %}
-                <li class="nav-item grow"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'account_login' %}">LOGIN</a>
+                <li class="nav-item grow"><a class="nav-link px-lg-3 py-3 py-lg-4"
+                        href="{% url 'account_login' %}">LOGIN</a>
                 </li>
                 <li class="nav-item grow"><a class="nav-link px-lg-3 py-3 py-lg-4"
                         href="{% url 'account_signup' %}">SIGNUP</a></li>
                 {% endif %}
+                <!--Shows Moderate Recipe if SuperUser is logged in-->
                 {% if user.is_authenticated and user.is_superuser %}
                 <li class="nav-item grow"><a class="nav-link px-lg-3 py-3 py-lg-4" href="{% url 'moderate_recipes' %}">
-                    MODERATE RECIPES
-                </a></li>
+                        MODERATE RECIPES
+                    </a></li>
                 {% endif %}
 
             </ul>
+            <!--Search Bar-->
+            <!--Allows user to search for recipes by keyword.  Searches Title, Description & Ingredients-->
             <form class="d-flex" role="search" method="GET" action="{% url 'search_results' %}">
                 {% csrf_token %}
-                <input class="form-control me-2" type="search" placeholder="Search Recipes" aria-label="Search" name="searched">
+                <input class="form-control me-2" type="search" placeholder="Search Recipes" aria-label="Search"
+                    name="searched">
                 <button class="btn btn-outline-secondary search-button" type="submit">Search</button>
             </form>
         </div>
