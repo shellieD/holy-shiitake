@@ -25,3 +25,4 @@ urlpatterns = [
 ]
 
 HANDLER404 = 'holy_shiitake.views.custom_404_error'
+HANDLER500 = 'holy_shiitake.views.custom_500_error'
