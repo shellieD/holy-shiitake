@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% load static %}
+
+<!-- Page Heading-->
+<div class="row">
+    <div class="col-8 offset-2">
+        <h3 class="h3 display-2 text-center title">500 - Internal Server Error</h3>
+        <hr>
+        <div class="center error-message">
+            <p class="slogan responsive-text">Holy Shiitake!</p>
+            <div>
+                <p>Well, this is embarrassing...</p>
+                <p>Looks like something isn't working properly. We are working hard to fix it.</p>
+                <p>In the meantime, let's get you back to the home page!</p>
+            </div>
+            <a href="{% url 'home' %}">HOME</a>
+        </div>
+    </div>
+</div>
+
+<br>
+
+{% endblock %}
