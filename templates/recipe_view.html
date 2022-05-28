@@ -8,25 +8,25 @@
 
 <!-- Page Header-->
 {% if "placeholder" in recipe.recipe_image.url %}
-<header class="masthead" style="background-image: url('{% static 'images/vegetables.jpg' %}');">
-{% else %}
-<header class="masthead" style="background-image: url('{{ recipe.recipe_image.url }}');">
-{% endif %}
-    <div class="opaque-overlay">&nbsp;</div>
-    <div class="container position-relative px-4 px-lg-5">
-        <div class="row gx-4 gx-lg-5 justify-content-center">
-            <div class="col-md-10 col-lg-8 col-xl-7">
-                <div class="post-heading">
-                    <h1>{{ recipe.recipe_name }}</h1>
-                    <span class="meta">
-                        Added by
-                        {{ recipe.author }} | {{ recipe.added_on }}
-                    </span>
+<header class="masthead" style="background-image: url('{% 'https://res.cloudinary.com/bubblecloud/image/upload/v1652285408/vegetables_r4syec.jpg' %}');">
+    {% else %}
+    <header class="masthead" style="background-image: url('{{ recipe.recipe_image.url }}');">
+        {% endif %}
+        <div class="opaque-overlay">&nbsp;</div>
+        <div class="container position-relative px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div class="post-heading">
+                        <h1>{{ recipe.recipe_name }}</h1>
+                        <span class="meta">
+                            Added by
+                            {{ recipe.author }} | {{ recipe.added_on }}
+                        </span>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</header>
+    </header>
     <!-- Recipe Content-->
     <article class="mb-4">
         <div class="container px-4 px-lg-5">
@@ -42,6 +42,8 @@
                     <div class="row inline-block">
                         <div class="col-1 inline">
                             <strong>
+                                <!--LIKES-->
+                                <!--Allows user to like recipes if logged in-->
                                 {% if user.is_authenticated %}
                                 <form class="d-inline" action="{% url 'recipe_like' recipe.slug %}" method="POST">
                                     {% csrf_token %}
@@ -72,10 +74,11 @@
                                     {% endwith %}
                                 </div>
                             </strong>
-        
+
                         </div>
-                        
-                    </strong>
+
+                        </strong>
+                        <!--Shows edit and delete buttons if user is logged in and recipe belongs to user-->
                         {% if user.is_authenticated and user.id == recipe.author.id %}
                         <div class="buttons">
                             <a class="btn btn-success edit-button" href="{% url 'update_recipe' recipe.slug %}"
@@ -88,7 +91,7 @@
                 {% endif %}
                 </strong>
             </div>
-            
+
 
         </div>
         </div>
@@ -100,10 +103,11 @@
         <div class="col-md-12 card mb-4 mt-3">
             <h3>Comments:</h3>
             <div class="card-body">
+                <!--Lists all comments beneath recipe-->
                 {% for comment in comments %}
                 <div>
-                    <p class="font-weight-bold">
-                        {{ comment.name }}
+                    <p>
+                        <strong>{{ comment.name }}</strong>
                         <span class="text-muted font-weight-nrmal">
                             {{ comment.added_on }}
                         </span>
@@ -122,6 +126,7 @@
                     Thanks {{ user.username }}, your comment is awaiting approval
                 </div>
                 {% else %}
+                <!--Allows user to comment if logged in-->
                 {% if user.is_authenticated %}
 
                 <h3>Leave a comment:</h3>
