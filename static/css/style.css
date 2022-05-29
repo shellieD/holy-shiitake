@@ -62,7 +62,7 @@ hr {
 on the Code Institute Full Stack Developer Course */
 #main-image {
     height: 70vh;
-    background: url('https://res.cloudinary.com/bubblecloud/image/upload/v1653338558/vegan-food_kloyxy.jpg') no-repeat center fixed;
+    background: url('https://res.cloudinary.com/bubblecloud/image/upload/v1653833897/trddfsrbj42t1xigju1z.webp') no-repeat center;
     -webkit-background-size: cover;
     -moz-background-size: cover;
     -o-background-size: cover;
@@ -112,13 +112,13 @@ on the Code Institute Full Stack Developer Course */
 }
 
 .info-text {
-    /* font-size: 1vw; */
+    font-size: 1.5vw;
     margin-bottom: 5px;
 }
 
 .header-text p {
-    /* font-size: 1.4em; */
-    margin-bottom: 5px;
+    font-size: 1.4em;
+
 }
 
 .text-white {
