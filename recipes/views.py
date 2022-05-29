@@ -77,6 +77,24 @@ class RecipeView(View):
             }
         )
 
+class ModerateRecipeView(View):
+    """View to show recipe details for selected recipe"""
+    def get(self, request, slug, *args, **kwargs):
+        queryset = Recipe.objects.filter(status=0)
+        recipe = get_object_or_404(queryset, slug=slug)
+        comments = recipe.comments.filter(approved=True).order_by('added_on')
+        liked = False
+        if recipe.likes.filter(id=self.request.user.id).exists():
+            liked = True
+
+        return render(
+            request,
+            "moderate_recipe_view.html",
+            {
+                "recipe": recipe,
+            }
+        )
+
 
 class RecipeLike(View):
     """View to toggle like button"""
