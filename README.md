@@ -255,6 +255,8 @@ The footer is kept simple and clean incorporating social media links to encourag
 
 When adding functionality to allow users to add comments to recipes, the user was able to post one comment, however if they were to comment on another post an error would display saying the user already existed.  Through debugging I noticed that when setting up the comments model, I had used unique=True in the name field.  This meant that the user could only ever comment on one recipe.  To fix this, I simply removed unique=True and migrated the changes to the database.  This fixed the error and users can now comment multiple times on multiple recipes.  
 
+When testing the add recipe form, it was noted that the ability to view the form as code was available.  This meant that anyone could insert javascript into the form.  This was tested for me by a fellow student who inserted javascript into the form and turned the background color of the whole page bright red.  Whilst this was not damaging to the website and was easily rectified by customising the summernote toolbar, it did reveal a potentially 
+
 When a user updates a recipe it is not sent to admin for approval, it updates and is published to the site.  This could mean that a user could edit their recipe with inappropriate content or with spelling errors, bad formatting and it would automatically be published, potentially jeopardising the integrity of the site.  This will be looked at and fixed in the next sprint.
 
 ## Technologies Used
@@ -381,3 +383,6 @@ Heroku will now build the app for you. Once it has completed the build process y
 Image by <a href="https://pixabay.com/users/pasja1000-6355831/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=4581877">pasja1000</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=4581877">Pixabay</a>
 
 image by Photo by Trang Doan: https://www.pexels.com/photo/top-view-photo-of-food-dessert-1099680/
+
+https://www.youtube.com/watch?v=3SKjPppM_DU - For how to create custom 404 error page. 
+
