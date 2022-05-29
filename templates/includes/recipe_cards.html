@@ -12,7 +12,7 @@
                 <h2 class="card-title">{{ recipe.recipe_name }}</h2>
             </a>
             <p class="author">Recipe by: {{ recipe.author }}</p>
-            <p class="card-text">{{ recipe.description |safe }}</p>
+            <p class="card-text">{{ recipe.description |safe }} <!-- closing </p> removed as this throws an error in HTML Validator-->
             <hr>
             <p class="card-text text-muted h6">{{ recipe.added_on }} <i
                     class="far fa-heart"> </i> {{ recipe.number_of_likes }}</p>
