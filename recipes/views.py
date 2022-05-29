@@ -1,3 +1,4 @@
+""" Views """
 from django.shortcuts import render, get_object_or_404, reverse, redirect
 from django.views import generic, View
 from django.views.generic.edit import UpdateView, DeleteView
@@ -77,15 +78,12 @@ class RecipeView(View):
             }
         )
 
+
 class ModerateRecipeView(View):
     """View to show recipe details for selected recipe"""
     def get(self, request, slug, *args, **kwargs):
         queryset = Recipe.objects.filter(status=0)
         recipe = get_object_or_404(queryset, slug=slug)
-        comments = recipe.comments.filter(approved=True).order_by('added_on')
-        liked = False
-        if recipe.likes.filter(id=self.request.user.id).exists():
-            liked = True
 
         return render(
             request,
@@ -184,6 +182,7 @@ class DeleteRecipe(DeleteView):
     template_name = 'delete_recipe.html'
     success_url = reverse_lazy('user_recipes')
 
+
 class ModerateDeleteRecipe(DeleteView):
     """View to delete recipe"""
     model = Recipe
@@ -203,6 +202,7 @@ class ApproveRecipe(UpdateView):
 # https://www.youtube.com/watch?v=AGtae4L5BbI
 # Create a Search Bar - Django
 def search_results(request):
+    """function to search recipes by title, description and ingredients"""
     if request.method == "GET":
         searched = request.GET['searched']
         recipes = Recipe.objects.distinct().filter(
