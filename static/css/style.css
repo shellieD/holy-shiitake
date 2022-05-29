@@ -74,12 +74,6 @@ on the Code Institute Full Stack Developer Course */
     position: relative;
 }
 
-/* @media screen and (max-width: 500px){
-    #main-image {
-        height: 40vh;
-    }
-} */
-
 @media screen and (max-width: 950px) {
     #main-image {
         height: 40vh;
@@ -146,10 +140,6 @@ on the Code Institute Full Stack Developer Course */
     color: #570000;
 }
 
-.card-title:hover {
-    text-shadow: #768b45;
-}
-
 .masthead {
     height: 50vh;
     background-repeat: no-repeat;
@@ -205,7 +195,6 @@ on the Code Institute Full Stack Developer Course */
 
 .edit-button {
     background-color: #263B00;
-    border-color: #263B00;
 }
 
 .edit-button:hover {
@@ -215,7 +204,6 @@ on the Code Institute Full Stack Developer Course */
 
 .delete-button {
     background-color: #951F1D;
-    border-color: #951F1D;
 }
 
 .delete-button:hover {
@@ -224,7 +212,6 @@ on the Code Institute Full Stack Developer Course */
 
 .approve-button {
     background-color: #768b45;
-    border-color: #768b45;
 }
 
 .approve-button:hover {
