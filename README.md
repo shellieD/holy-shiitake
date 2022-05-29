@@ -32,13 +32,6 @@ The sites target audience is:
 * People who are looking to reduce their meat/dairy intake.
 * People who are looking to increase their recipe repertoire to include meat and dairy free dishes.
 
-### Site Goals
-
-* To provide user with a space to search for strictly plant-based, vegan-friendly recipes
-* To provide users with a visually pleasing website that is intuitive to use and easy to navigate
-* To provide a website where the purpose is immediately clear
-* To provide role-based permissions that allows user to create, edit and delete their own recipes and site admin to approve, edit and delete recipes.
-
 ### User Stories
 
 <strong>As a General Site User:</strong>
@@ -66,8 +59,21 @@ The sites target audience is:
 * I can edit user-created recipes so that they follow a consistent format and style for better user experience
 * I can delete user-created recipes so that I can filter out inappropriate content.
 
+<strong>Agile Methodology</strong>
+
+All functionality and development of this project were managed using GitHub Projects Kanban Board which can be found here:
+
+[Holy Shiitake Recipe Sharing - USER STORIES](https://github.com/shellieD/holy-shiitake/projects/2)
+
 ## The Scope Plane
 <hr>
+
+### Site Goals
+
+* To provide user with a space to search for strictly plant-based, vegan-friendly recipes
+* To provide users with a visually pleasing website that is intuitive to use and easy to navigate
+* To provide a website where the purpose is immediately clear
+* To provide role-based permissions that allows user to create, edit and delete their own recipes and site admin to approve, edit and delete recipes.
 
 ### Features planned
 
@@ -81,11 +87,81 @@ The sites target audience is:
 * User Sign Up and Log in/Out
 * Custom 404 & 500 error pages for good user experience
 
+
 ## The Structure Plane
 <hr>
 
+## Functional Scope
+
+### Flowchart
+
+![Holy Shiitake Flowchart](docs/images/flowchart.png)
 
 
+
+## Database Schema
+
+Two custom models were created for the website, Recipes and Comments and Django AllAuth was utilised for user authentication.  The below ERD was created using [DrawSQL](https://drawsql.app/home) although limitations of the app meant that textarea and Cloudinary fields were not available to use.
+
+![Database Schema](docs/images/databaseschema.png)
+
+
+## The Skeleton Plane
+
+## Wireframes 
+
+I used [Balsamiq](https://balsamiq.cloud/) to create low fidelity wireframes which helped me to stay on track during the development process.
+
+Some modifications were made to the initial design during the development process based on user feedback and continuous testing.
+
+<details>
+<summary>Home Page Wireframes for Mobile, Tablet and Desktop</summary>
+<br>
+
+![Homepage Wireframes](docs/images/homepage-wireframes.png)
+</details>
+
+<br>
+
+<details>
+<summary>Alternative Navbar Wireframes for Mobile, Tablet and Desktop</summary>
+<br>
+
+![Navbar Wireframes](docs/images/navbar-wireframes.png)
+</details>
+
+<br>
+
+<details>
+<summary>All Recipes Page Wireframes for Mobile, Tablet and Desktop</summary>
+<br>
+
+![All Recipes Wireframes](docs/images/allrecipes-wireframes.png)
+</details>
+
+<br>
+
+<details>
+<summary>Recipe Details Wireframes for Mobile, Tablet and Desktop</summary>
+<br>
+
+![Recipe Detail Wireframes](docs/images/recipedetail-wireframes.png)
+</details>
+
+<br>
+
+<details>
+<summary>Add Recipe Wireframes for Mobile, Tablet and Desktop</summary>
+<br>
+
+![Add Recipe Wireframes](docs/images/addrecipe-wireframes.png)
+    
+</details>
+
+<br>
+
+
+## The Surface Plane
 
 ## Design
 
@@ -119,14 +195,7 @@ I also sourced an image from [Pexels](pexels.com) to use as a placeholder image 
 
 All other images that will be uploaded to the site will be chosen by the user, however as Admin need to approve all recipes before they are made public on the site, Admin can change the image as they see fit if the image uploaded is not in keeping with the theme of the website or is inappropriate. 
 
-## Wireframes 
 
-
-## Database Schema
-
-Two custom models were created for the website, Recipes and Comments and Django AllAuth was utilised for user authentication.  The below ERD was created using [DrawSQL](https://drawsql.app/home) although limitations of the app meant that textarea and Cloudinary fields were not available to use.
-
-![Database Schema](docs/images/databaseschema.png)
 
 ## Features
 
@@ -185,6 +254,8 @@ The footer is kept simple and clean incorporating social media links to encourag
 ### Bugs
 
 When adding functionality to allow users to add comments to recipes, the user was able to post one comment, however if they were to comment on another post an error would display saying the user already existed.  Through debugging I noticed that when setting up the comments model, I had used unique=True in the name field.  This meant that the user could only ever comment on one recipe.  To fix this, I simply removed unique=True and migrated the changes to the database.  This fixed the error and users can now comment multiple times on multiple recipes.  
+
+When a user updates a recipe it is not sent to admin for approval, it updates and is published to the site.  This could mean that a user could edit their recipe with inappropriate content or with spelling errors, bad formatting and it would automatically be published, potentially jeopardising the integrity of the site.  This will be looked at and fixed in the next sprint.
 
 ## Technologies Used
 
