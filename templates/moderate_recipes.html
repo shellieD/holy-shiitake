@@ -42,9 +42,9 @@
                             <!-- APPROVE/EDIT/DELETE BUTTONS-->
                             <a class="btn btn-success approve-button" href="{% url 'approve_recipe' recipe.slug %}"
                                 role="button">Approve</a>
-                            <a class="btn btn-success edit-button" href="{% url 'update_recipe' recipe.slug %}"
+                            <a class="btn btn-success edit-button" href="{% url 'moderate_update_recipe' recipe.slug %}"
                                 role="button">Edit</a>
-                            <a class="btn btn-danger delete-button" href="{% url 'delete_recipe' recipe.slug %}"
+                            <a class="btn btn-danger delete-button" href="{% url 'moderate_delete_recipe' recipe.slug %}"
                                 role="button">Delete</a>
                         </div>
                     </div>
