@@ -152,11 +152,25 @@ class UpdateRecipe(UpdateView):
     success_url = reverse_lazy('user_recipes')
 
 
+class ModerateUpdateRecipe(UpdateView):
+    """View to update a recipe"""
+    model = Recipe
+    template_name = 'update_recipe.html'
+    form_class = RecipeForm
+    success_url = reverse_lazy('moderate_recipes')
+
+
 class DeleteRecipe(DeleteView):
     """View to delete recipe"""
     model = Recipe
     template_name = 'delete_recipe.html'
     success_url = reverse_lazy('user_recipes')
+
+class ModerateDeleteRecipe(DeleteView):
+    """View to delete recipe"""
+    model = Recipe
+    template_name = 'delete_recipe.html'
+    success_url = reverse_lazy('moderate_recipes')
 
 
 class ApproveRecipe(UpdateView):
