@@ -37,63 +37,60 @@
                     <hr>
                     <h2>Ingredients</h2>
                     <p>{{ recipe.ingredients | safe}}
-                        <!-- Closing </p> tag removed due to summernote inserting automatically-->
-                        <hr>
-                        <h2>Method</h2>
-                        <p>{{ recipe.method | safe }}
-                        <!-- Closing </p> tag removed due to summernote inserting automatically-->
-                        <div class="row inline-block">
-                        <div class="col-1 inline">
-                        <!--LIKES-->
-                        <!--Allows user to like recipes if logged in-->
-                        {% if user.is_authenticated %}
-                        <form class="d-inline" action="{% url 'recipe_like' recipe.slug %}"
-                            method="POST">
-                            {% csrf_token %}
-                            {% if liked %}
+                    <!-- Closing </p> tag removed due to summernote inserting automatically-->
+                    <hr>
+                    <h2>Method</h2>
+                    <p>{{ recipe.method | safe }}
+                    <!-- Closing </p> tag removed due to summernote inserting automatically-->
+                    <div class="row inline-block">
+                    <div class="col-1 inline">
+                    <!--LIKES-->
+                    <!--Allows user to like recipes if logged in-->
+                    {% if user.is_authenticated %}
+                    <form class="d-inline" action="{% url 'recipe_like' recipe.slug %}"
+                        method="POST">
+                        {% csrf_token %}
+                        {% if liked %}
 
-                                <button type="submit" name="recipe_id" value="{{ recipe.slug }}"
-                                    class="btn-like">
-                                    <i class="fas fa-heart"></i>
-                                </button>
+                            <button type="submit" name="recipe_id" value="{{ recipe.slug }}"
+                                class="btn-like">
+                                <i class="fas fa-heart"></i>
+                            </button>
 
-                            {% else %}
-
-                                <button type="submit" name="recipe_id" value="{{ recipe.slug }}"
-                                    class="btn-like">
-                                    <i class="far fa-heart"> </i>
-                                </button>
-
-                            {% endif %}
-                        </form>
                         {% else %}
 
-                        <span class="text-secondary"><i class="far fa-heart"> </i></span>
+                            <button type="submit" name="recipe_id" value="{{ recipe.slug }}"
+                                class="btn-like">
+                                <i class="far fa-heart"> </i>
+                            </button>
+
                         {% endif %}
-                        <span class="text-secondary"> {{ recipe.number_of_likes }}</span>
+                    </form>
+                    {% else %}
 
-                        <div class="col-1 inline comments">
-                            {% with comments.count as total_comments %}
-                            <strong class="text-secondary">
-                                <i class="far fa-comments"> </i> {{ total_comments }}</strong>
-                            {% endwith %}
-                        </div>
-                        </div>
+                    <span class="text-secondary"><i class="far fa-heart"> </i></span>
+                    {% endif %}
+                    <span class="text-secondary"> {{ recipe.number_of_likes }}</span>
 
-                        <!--Shows edit and delete buttons if user is logged in and recipe belongs to user-->
-                        {% if user.is_authenticated and user.id == recipe.author.id %}
+                    <div class="col-1 inline comments">
+                        {% with comments.count as total_comments %}
+                        <strong class="text-secondary">
+                            <i class="far fa-comments"> </i> {{ total_comments }}</strong>
+                        {% endwith %}
+                    </div>
+                    </div>
+
+                    <!--Shows edit and delete buttons if user is logged in and recipe belongs to user-->
+                    {% if user.is_authenticated and user.id == recipe.author.id %}
                         <div class="buttons">
                             <a class="btn btn-success edit-button"
                                 href="{% url 'update_recipe' recipe.slug %}" role="button">Edit</a>
                             <a class="btn btn-danger delete-button"
                                 href="{% url 'delete_recipe' recipe.slug %}" role="button">Delete</a>
                         </div>
-                        </div>
+                    {% endif %}
                 </div>
-                {% endif %}
             </div>
-
-
         </div>
     </article>
 
