@@ -31,7 +31,7 @@
                                     alt="{{ recipe.recipe_name }}">
                                 {% endif %}
                             </div>
-                            <a href="{% url 'recipe_view' recipe.slug %}" class="recipe-link">
+                            <a href="{% url 'moderate_recipe_view' recipe.slug %}" class="recipe-link">
                                 <h2 class="card-title">{{ recipe.recipe_name }}</h2>
                             </a>
                             <p class="card-text">{{ recipe.description |safe }}</p>
