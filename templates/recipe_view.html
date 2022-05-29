@@ -32,13 +32,13 @@
         <div class="container px-4 px-lg-5">
             <div class="row gx-4 gx-lg-5 justify-content-center">
                 <div class="col-md-10 col-lg-8 col-xl-7">
-                    <p>{{ recipe.description | safe }}</p>
+                    <p>{{ recipe.description | safe }} <!-- Closing </p> tag removed due to summernote inserting automatically-->
                     <hr>
                     <h2>Ingredients</h2>
-                    <p>{{ recipe.ingredients | safe}}</p>
+                    <p>{{ recipe.ingredients | safe}}<!-- Closing </p> tag removed due to summernote inserting automatically-->
                     <hr>
                     <h2>Method</h2>
-                    <p>{{ recipe.method | safe }}</p>
+                    <p>{{ recipe.method | safe }}<!-- Closing </p> tag removed due to summernote inserting automatically-->
                     <div class="row inline-block">
                         <div class="col-1 inline">
                             <strong>
