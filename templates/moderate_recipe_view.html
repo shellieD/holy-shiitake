@@ -1,0 +1,64 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+{% load static %}
+
+{% load crispy_forms_tags %}
+
+<!-- Page Header-->
+{% if "placeholder" in recipe.recipe_image.url %}
+    <header class="masthead" style="background-image: url('{% static 'images/vegetables.jpg' %}');">
+{% else %}
+    <header class="masthead" style="background-image: url('{{ recipe.recipe_image.url }}');">
+ {% endif %}
+        <div class="opaque-overlay">&nbsp;</div>
+        <div class="container position-relative px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <div class="post-heading">
+                        <h1>{{ recipe.recipe_name }}</h1>
+                        <span class="meta">
+                            Added by
+                            {{ recipe.author }} | {{ recipe.added_on }}
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Recipe Content-->
+    <article class="mb-4">
+        <div class="container px-4 px-lg-5">
+            <div class="row gx-4 gx-lg-5 justify-content-center">
+                <div class="col-md-10 col-lg-8 col-xl-7">
+                    <p>{{ recipe.description | safe }}</p>
+                    <hr>
+                    <h2>Ingredients</h2>
+                    <p>{{ recipe.ingredients | safe}}</p>
+                    <hr>
+                    <h2>Method</h2>
+                    <p>{{ recipe.method | safe }}</p>
+                    <div class="row inline-block">
+                        <div class="buttons">
+                            <!-- APPROVE/EDIT/DELETE BUTTONS-->
+                            <a class="btn btn-success approve-button" href="{% url 'approve_recipe' recipe.slug %}"
+                                role="button">Approve</a>
+                            <a class="btn btn-success edit-button" href="{% url 'moderate_update_recipe' recipe.slug %}"
+                                role="button">Edit</a>
+                            <a class="btn btn-danger delete-button"
+                                href="{% url 'moderate_delete_recipe' recipe.slug %}" role="button">Delete</a>
+                        </div>
+                    </div>
+                </div>
+                </strong>
+            </div>
+
+
+        </div>
+        </div>
+        </div>
+        </div>
+    </article>
+
+    {% endblock %}
