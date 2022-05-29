@@ -19,6 +19,11 @@ urlpatterns = [
         name='recipe_view'
     ),
     path(
+        'recipes/<slug:slug>/moderate_recipe_view',
+        views.ModerateRecipeView.as_view(),
+        name='moderate_recipe_view'
+    ),
+    path(
         'like/<slug:slug>',
         views.RecipeLike.as_view(),
         name='recipe_like'
