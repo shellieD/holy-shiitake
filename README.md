@@ -287,9 +287,9 @@ When a user updates a recipe it is not sent to admin for approval, it updates an
 
     <br>
 
-* Heroku PostgreSQL
-* Heroku
-* Bootstap
+* Heroku PostgreSQL was used for the database
+* Heroku - The project was deployed through Heroku.
+* Bootstrap was used for 
 * Jinga/Django Templating
 * Balsamiq: Balsamiq was used to create the wireframes during the design process.
 * Favicon Generator: Used to create favicon used on the website.
@@ -299,6 +299,7 @@ When a user updates a recipe it is not sent to admin for approval, it updates an
 * Google Fonts: Google fonts are used to add fonts for aesthetic and UX purposes.
 * Multi Device Website Mockup Generator: Used to generate mockup image.
 * DrawSQL.app was used to develop the database schema during development.
+* Lucidcharts was used to created a flow chart.
 
 ## Deployment
 
