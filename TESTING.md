@@ -66,11 +66,11 @@ Once I knew that all the navigation and buttons were working on desktop, I neede
 
 In addition to the functionality afforded to all users of the site, registered users also have the ability to add, update and delete recipes, as well as view a paginated list of their own recipes.  This was tested and all outcomes were as expected. 
 
-### Test Case 005
+### Test Case 005
 
 ![Test Case 005](docs/testing/tc05manual-testing-superuser.png)
 
-### - Manual Testing - SuperUser - Approve Recipes
+### Manual Testing - SuperUser - Approve Recipes
 
 Super Users are given the additional ability to approve recipes from the website.  When logged in as a super user, an additional tab will appear on the navigation bar called 'Moderate Recipes' and the super user can view a paginated list of all of the recipes awaiting approval.  They can also Edit or Delete added recipes.  All functionality was tested and the outcomes were as expected.
 
