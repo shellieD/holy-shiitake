@@ -397,7 +397,7 @@ Heroku will now build the app for you. Once it has completed the build process y
 
 ## Credits
 
-* As this was my first Django project, I took a lot of inspiraiton from teh [Code Institute's]()
+* As this was my first Django project, I took a lot of inspiration from th [Code Institute's](https://codeinstitute.net/) Django Blog walkthrough.  I took inspiration from the models, views and templates to get the skeleton of the project up and running and as I became more familiar with Django I started to customise this to make it my own. 
 
 * The main image and the placeholder image were sourced from [Pixabay](https://pixabay.com/) and [Unsplash](https://unsplash.com/) respectively. 
 
@@ -409,6 +409,6 @@ Heroku will now build the app for you. Once it has completed the build process y
 
 ## Acknowledgments
 
-* Huge thanks go to my fellow students who have been on hand to give me advice, support and encouragement through the development of this project.  [Matt Bodden](https://github.com/MattBCoding), [Chris Williams](https://github.com/Chr15w1986), [Dave Horrocks](https://github.com/DaveyJH) and [Ryan Sharp](https://github.com/Sharpryan20) - Thank you all so much for your help!  
+* Huge thanks go to my fellow students who have been on hand to give me advice, support and encouragement through the development of this project.  [Matt Bodden](https://github.com/MattBCoding) a truly amazing coder, [Chris Williams](https://github.com/Chr15w1986) my deadline buddy - thanks for helping to keep me sane and helping me sort some of my styling issues out, [Dave Horrocks](https://github.com/DaveyJH) for breaking my code and turning my website red(!) and [Ryan Sharp](https://github.com/Sharpryan20) - Thank you all so much for your help!  
 * Massive thanks to my Mentor Brian O'Hare for his advice and encouragement.
 * My family for being so patient whilst I spent many hours at my desk!
