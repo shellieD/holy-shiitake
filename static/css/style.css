@@ -6,8 +6,8 @@ body {
 }
 
 .nav-bar-green {
-    background-color: #768b45;
-    box-shadow: 0px 2px 5px #768b45;
+    background-color: #212910;
+    box-shadow: 0px 2px 5px #212910;
 }
 
 .navbar-brand {
@@ -219,7 +219,7 @@ on the Code Institute Full Stack Developer Course */
 }
 
 .sub-btn {
-    margin: 5px;
+    margin: 20px;
 }
 
 .page-link {
