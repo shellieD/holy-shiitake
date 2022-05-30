@@ -307,6 +307,17 @@ When a user updates a recipe it is not sent to admin for approval, it updates an
 * DrawSQL.app was used to develop the database schema during development.
 * Lucidcharts was used to created a flow chart.
 
+
+### Resources
+
+* Code Institute's Codestar Django Blog was used in the beginning stages of the development of this project.  As I had never used Django before, I found the blog walkthrough to be very helpful in getting the initial app set up.
+* Django Documentation - I relied heavily on the Django official documentation during the build of this project.
+* W3C Schools documentation for CSS
+* Google
+* Stack overflow
+* Code Institute's Slack Community.
+
+
 ## Deployment
 
 ### Deployment through Heroku
@@ -384,9 +395,12 @@ Heroku will now build the app for you. Once it has completed the build process y
 
 ## Credits
 
-Image by <a href="https://pixabay.com/users/pasja1000-6355831/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=4581877">pasja1000</a> from <a href="https://pixabay.com/?utm_source=link-attribution&amp;utm_medium=referral&amp;utm_campaign=image&amp;utm_content=4581877">Pixabay</a>
-
-image by Photo by Trang Doan: https://www.pexels.com/photo/top-view-photo-of-food-dessert-1099680/
+The main image and the placeholder image were sourced from [Pixabay](https://pixabay.com/) and [Unsplash](https://unsplash.com/) respectively. 
 
 https://www.youtube.com/watch?v=3SKjPppM_DU - For how to create custom 404 error page. 
 
+## Acknowledgments
+
+* Huge thanks go to my fellow students who have been on hand to give me advice, support and encouragement through the development of this project.  [Matt Bodden](https://github.com/MattBCoding), [Chris Williams](https://github.com/Chr15w1986), [Dave Horrocks](https://github.com/DaveyJH) and [Ryan Sharp](https://github.com/Sharpryan20) - Thank you all so much for your help!  
+* Massive thanks to my Mentor Brian O'Hare for his advice and encouragement.
+* My family for being so patient whilst I spent many hours at my desk!
