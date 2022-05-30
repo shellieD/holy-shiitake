@@ -230,7 +230,7 @@ The footer is kept simple and clean incorporating social media links to encourag
 
 ![Footer](docs/images/footer.png)
 
-### Add more features here...
+### Other Features
 
 * Home page - This has a hero-image, title and slogan, brief description of the website and a call to action - Sign Up or Log In if not already logged in or Add Recipe if logged in.  Underneath the hero image, the latest six recipes will be displayed as recipe cards. 
 * All Recipes - Paginated list of recipe cards ordered alphabetically.
@@ -246,18 +246,22 @@ The footer is kept simple and clean incorporating social media links to encourag
 
 * Better functionality and use of Django AllAuth.  I would like to implement more features of AllAuth in the future, including the ability to change the password or reset the password if forgotten.  I would also like to implement email verification and confirmation.
 
-* I would also like to add the ability for the super user to approve comments through the website rather than just the admin panel.  Unfortunately, this was out of scope for this sprint. 
+* I would like to add the ability for the super user to approve comments through the website rather than just the admin panel.  Unfortunately, this was out of scope for this sprint. 
 
 
 ## Testing
+
+Testing has taken place continuously throughout the development of the website. Each view was tested regularly using print statements to ensure the expected outcome was achieved. When the outcome produced was not as expected, debugging was undertaken at that point. I have detailed below some of the bugs that have been resolved and some that remain (due to time constraints/knowledge gaps).
+
+All testing and code validation information can be found in the separate [TESTING.md](TESTING.md) file
 
 ### Bugs
 
 When adding functionality to allow users to add comments to recipes, the user was able to post one comment, however if they were to comment on another post an error would display saying the user already existed.  Through debugging I noticed that when setting up the comments model, I had used unique=True in the name field.  This meant that the user could only ever comment on one recipe.  To fix this, I simply removed unique=True and migrated the changes to the database.  This fixed the error and users can now comment multiple times on multiple recipes.  
 
-When testing the add recipe form, it was noted that the ability to view the form as code was available.  This meant that anyone could insert javascript into the form.  This was tested for me by a fellow student who inserted javascript into the form and turned the background color of the whole page bright red.  Whilst this was not damaging to the website and was easily rectified by customising the summernote toolbar, it did reveal a potentially 
+When testing the add recipe form, it was noted that the ability to view the form as code was available.  This meant that anyone could insert javascript into the form.  This was tested for me by a fellow student who inserted javascript into the form and turned the background color of the whole page bright red.  Whilst this was not damaging to the website and was easily rectified by customising the summernote toolbar, it did reveal a potential vulnerability that could have had serious consequences if not picked up. 
 
-When a user updates a recipe it is not sent to admin for approval, it updates and is published to the site.  This could mean that a user could edit their recipe with inappropriate content or with spelling errors, bad formatting and it would automatically be published, potentially jeopardising the integrity of the site.  This will be looked at and fixed in the next sprint.
+When a user updates a recipe it is not sent to admin for approval, it updates and is published to the site.  This could mean that a user could edit their recipe with inappropriate content or with spelling errors/bad formatting and it would automatically be published, potentially jeopardising the integrity of the site.  This will be looked at and fixed in the next sprint.
 
 ## Technologies Used
 
