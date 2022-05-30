@@ -74,7 +74,7 @@ on the Code Institute Full Stack Developer Course */
     position: relative;
 }
 
-@media screen and (max-width: 950px) {
+@media screen and (max-width: 600px) {
     #main-image {
         height: 40vh;
         background: url('https://res.cloudinary.com/bubblecloud/image/upload/v1653857918/veganfoodsmall_qanpzt.webp') no-repeat center;
@@ -109,17 +109,12 @@ on the Code Institute Full Stack Developer Course */
 }
 
 .slogan {
-    font-size: 1.8vw;
+    font-size: initial;
 }
 
 .info-text {
-    font-size: 1.5vw;
+    font-size: initial;
     margin-bottom: 5px;
-}
-
-.header-text p {
-    font-size: 1.4em;
-
 }
 
 .text-white {
