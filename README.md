@@ -306,6 +306,8 @@ When a user updates a recipe it is not sent to admin for approval, it updates an
 * Multi Device Website Mockup Generator: Used to generate mockup image.
 * DrawSQL.app was used to develop the database schema during development.
 * Lucidcharts was used to created a flow chart.
+* Tinypng
+* JPG to WEBP | Cloudconvert
 
 
 ### Resources
