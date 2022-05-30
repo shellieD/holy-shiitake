@@ -22,7 +22,6 @@ body {
 .nav-link {
     font-family: 'Noto Sans Display', sans-serif;
     color: #fff;
-    font-weight: bold;
 }
 
 .nav-link:hover {
