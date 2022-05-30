@@ -3,13 +3,12 @@
 <h1 align=center>Holy Shiitake!!!</h1> 
 
 <h2 align=center>Introduction</h2> 
-<hr>
 
 <p align=center>Holy Shiitake is a website dedicated to sharing, creating and interacting with vegan recipes.  Whether you are vegan, a vegetarian looking to reduce your dairy intake, or are looking for something different to add to your recipe repertoire, Holy Shiitake is the place to be! <br><br>Browse through the recipes already added to the site for a bit of inspiration, or if you are a seasoned vegan, share your recipes with others to help get them on the 'band-wagon'!</br><br> Users have the ability to search through recipes already added to the site and registered users can create, update and delete their own recipes as well as comment on and like other users recipes.  The site provides role-based permissions and the SuperUser is able to approve, edit and delete recipes from the website itself and also via the admin panel.</br><br>Holy Shiitake has been built using the Django framework in Python, HTML and CSS, and provides user authentication and full CRUD functionality for recipes.</p>
 
 [Visit the live site on Heroku](https://holy-shiitake.herokuapp.com/)
 
-![Multi Device Website Mockup Generator Screenshot](docs/images/responsive-screenshots.png) 
+![Multi Device Website Mockup Generator Screenshot](docs/images/responsive-screenshot.png) 
 
 
 ## UX - User Experience Design
@@ -92,7 +91,6 @@ All functionality and development of this project were managed using GitHub Proj
 ### Flowchart
 
 ![Holy Shiitake Flowchart](docs/images/flowchart.png)
-
 
 
 ## Database Schema
@@ -238,11 +236,13 @@ The footer is kept simple and clean incorporating social media links to encourag
 * Recipe Detail - When a recipe card is clicked this opens the recipe detail page which shows all of the information included on the recipe card and additionally the ingredients, method, comments and a comments box which can be used if the user is logged in.
 
 
-### Future Features
+### Future Features/Development
 
 * Better functionality and use of Django AllAuth.  I would like to implement more features of AllAuth in the future, including the ability to change the password or reset the password if forgotten.  I would also like to implement email verification and confirmation.
 
 * I would like to add the ability for the super user to approve comments through the website rather than just the admin panel.  Unfortunately, this was out of scope for this sprint. 
+
+* I would like to include JavaScript so that the like button toggles on and off without the page being refreshed each time.  This was out of scope for this project.
 
 
 ## Testing
@@ -258,6 +258,10 @@ When adding functionality to allow users to add comments to recipes, the user wa
 When testing the add recipe form, it was noted that the ability to view the form as code was available.  This meant that anyone could insert javascript into the form.  This was tested for me by a fellow student who inserted javascript into the form and turned the background color of the whole page bright red.  Whilst this was not damaging to the website and was easily rectified by customising the summernote toolbar, it did reveal a potential vulnerability that could have had serious consequences if not picked up. 
 
 When a user updates a recipe it is not sent to admin for approval, it updates and is published to the site.  This could mean that a user could edit their recipe with inappropriate content or with spelling errors/bad formatting and it would automatically be published, potentially jeopardising the integrity of the site.  This will be looked at and fixed in the next sprint.
+
+Other than the above, no notable bugs have been found and the website functions as expected.
+
+There are some more changes I would like to make to the styling in response to the accessibility report (see the [TESTING.md](TESTING.md) for more information) and to improve responsivness on all devices, but due to time constraints this wasn't possible before submission of this project.
 
 ## Technologies Used
 
@@ -308,7 +312,7 @@ When a user updates a recipe it is not sent to admin for approval, it updates an
 
 ### Resources
 
-* Code Institute's Codestar Django Blog was used in the beginning stages of the development of this project.  As I had never used Django before, I found the blog walkthrough to be very helpful in getting the initial app set up.
+* Code Institute's Codestar Django Blog was used in the beginning stages of the development of this project.  As I had never used Django before, I found the blog walkthrough to be very helpful in getting the initial app set up.   
 * Django Documentation - I relied heavily on the Django official documentation during the build of this project.
 * W3C Schools documentation for CSS
 * Google
@@ -393,9 +397,15 @@ Heroku will now build the app for you. Once it has completed the build process y
 
 ## Credits
 
-The main image and the placeholder image were sourced from [Pixabay](https://pixabay.com/) and [Unsplash](https://unsplash.com/) respectively. 
+* As this was my first Django project, I took a lot of inspiraiton from teh [Code Institute's]()
 
-https://www.youtube.com/watch?v=3SKjPppM_DU - For how to create custom 404 error page. 
+* The main image and the placeholder image were sourced from [Pixabay](https://pixabay.com/) and [Unsplash](https://unsplash.com/) respectively. 
+
+* I found a great video on YouTube which helped me [create a custom 404 error page](https://www.youtube.com/watch?v=3SKjPppM_DU) by [Cryce Truly](https://www.youtube.com/c/CryceTruly)
+
+* I also found a great tutorial on YouTube on [how to create a search bar](https://www.youtube.com/watch?v=AGtae4L5BbI).  This was created by [John Elder at Codemy.com]()
+
+
 
 ## Acknowledgments
 

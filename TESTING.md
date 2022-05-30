@@ -1,5 +1,7 @@
 # Testing
 
+Back to the [README.md](README.md)
+
 ## Testing Schedule
 
 The full testing schedule report can be found [here](docs/testing/testing-schedule-holy-shiitake.numbers)
@@ -74,3 +76,28 @@ In addition to the functionality afforded to all users of the site, registered u
 
 Super Users are given the additional ability to approve recipes from the website.  When logged in as a super user, an additional tab will appear on the navigation bar called 'Moderate Recipes' and the super user can view a paginated list of all of the recipes awaiting approval.  They can also Edit or Delete added recipes.  All functionality was tested and the outcomes were as expected.
 
+### Wave Webaim Accessibility Report
+
+Unfortunately, the accessibility report picked up on contrast errors relating to the colours selected for the nav bar font and background colours and also the text set against the background image on the main page.  This was only picked up shortly before the submission deadline and so there was not time to correct this beforehand.  This is something that will be fixed in the next sprint where a revised colour scheme will be considered.  
+
+The full report can be found [here](https://wave.webaim.org/report#/https://holy-shiitake.herokuapp.com/)
+
+For now, the navbar background color has been changed to #212910 to reduce the amount of contrast errors in the wave report.
+
+The updated wave report can be found [here](https://wave.webaim.org/report#/https://holy-shiitake.herokuapp.com/)
+
+### Lighthouse Scores 
+
+Lighthouse testing was performed and scored well on desktop devices:
+
+![Lighthouse Screenshot for Desktop](docs/testing/lighthouse1.png)
+
+However it didn't perform quite so well on mobile devices:
+
+![Lighthouse Screenshot for Mobile](docs/testing/lighthouse2.png)
+
+On further inspection, the opportunities for improvement on performance were related to things beyond my control (Bootrap, Cloudinary and Fontawesome) and out of the scope of knowledge at this point in the course.  This will be something to look into and aim to improve on in future sprints.
+
+![Lighthouse Opportunities for Improvement](docs/testing/lighthouse-opportunities.png)
+
+Back to the [README.md](README.md)
