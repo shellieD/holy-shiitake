@@ -1,19 +1,15 @@
-# Holy Shiitake!!! 
+![Holy Shiitake!!](docs/images/banner.png)
 
-## Introduction
+<h1 align=center>Holy Shiitake!!!</h1> 
+
+<h2 align=center>Introduction</h2> 
 <hr>
 
-Holy Shiitake is a website dedicated to sharing, creating and interacting with vegan recipes.  Whether you are vegan, a vegetarian looking to reduce your dairy intake, or are looking for something different to add to your recipe repertoire, Holy Shiitake is the place to be!
-
-Browse through the recipes already added to the site for a bit of inspiration, or if you are a seasoned vegan, share your recipes with others to help get them on the 'band-wagon'!
-
-Users have the ability to search through recipes already added to the site and registered users can create, update and delete their own recipes as well as comment on and like other users recipes.  The site provides role-based permissions and the SuperUser is able to approve, edit and delete recipes from the website itself and also via the admin panel.
-
-Holy Shiitake has been built using the Django framework in Python, HTML and CSS, and provides user authentication and full CRUD functionality for recipes.
+<p align=center>Holy Shiitake is a website dedicated to sharing, creating and interacting with vegan recipes.  Whether you are vegan, a vegetarian looking to reduce your dairy intake, or are looking for something different to add to your recipe repertoire, Holy Shiitake is the place to be! <br><br>Browse through the recipes already added to the site for a bit of inspiration, or if you are a seasoned vegan, share your recipes with others to help get them on the 'band-wagon'!</br><br> Users have the ability to search through recipes already added to the site and registered users can create, update and delete their own recipes as well as comment on and like other users recipes.  The site provides role-based permissions and the SuperUser is able to approve, edit and delete recipes from the website itself and also via the admin panel.</br><br>Holy Shiitake has been built using the Django framework in Python, HTML and CSS, and provides user authentication and full CRUD functionality for recipes.</p>
 
 [Visit the live site on Heroku](https://holy-shiitake.herokuapp.com/)
 
-![Multi Device Website Mockup Generator Screenshot](docs/images/responsive-screenshots.png)
+![Multi Device Website Mockup Generator Screenshot](docs/images/responsive-screenshots.png) 
 
 
 ## UX - User Experience Design
