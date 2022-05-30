@@ -76,8 +76,10 @@ on the Code Institute Full Stack Developer Course */
 
 @media screen and (max-width: 600px) {
     #main-image {
-        height: 40vh;
+        height: 53vh;
         background: url('https://res.cloudinary.com/bubblecloud/image/upload/v1653857918/veganfoodsmall_qanpzt.webp') no-repeat center;
+        padding-left: 5px;
+        padding-right: 5px;
     }
 }
 
